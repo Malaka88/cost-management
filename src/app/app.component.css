@@ -38,3 +38,7 @@
 .submenu.expanded {
     transform: scaleY(1);
 }
+
+.icon-display {
+    transform: scale(1.7);
+ }

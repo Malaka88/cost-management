@@ -15,6 +15,7 @@ import { FixedCostComponent } from './features/spending/components/fixed-cost/fi
 import { HomePageComponent } from './features/home/home-page/home-page.component';
 import { VariableCostPageComponent } from './features/spending/containers/variable-cost-page/variable-cost-page.component';
 import { IncomePageComponent } from './features/income/containers/income-page/income-page.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { IncomePageComponent } from './features/income/containers/income-page/in
     MatIconModule,
     MatDividerModule,
     LayoutModule,
-    MatListModule
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
