@@ -10,11 +10,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FixedCostPageComponent } from './features/spending/containers/fixed-cost-page/fixed-cost-page.component';
+import { FixedCostComponent } from './features/spending/components/fixed-cost/fixed-cost.component';
+import { HomePageComponent } from './features/home/home-page/home-page.component';
+import { VariableCostPageComponent } from './features/spending/containers/variable-cost-page/variable-cost-page.component';
+import { IncomePageComponent } from './features/income/containers/income-page/income-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FixedCostPageComponent,
+    FixedCostComponent,
+    HomePageComponent,
+    VariableCostPageComponent,
+    IncomePageComponent
   ],
   imports: [
     BrowserModule,

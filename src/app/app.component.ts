@@ -1,4 +1,3 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
@@ -11,6 +10,5 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   isExpanded = true;
   showSubmenu: boolean = false;
-  isShowing = false;
   showSubSubMenu: boolean = false;
 }
