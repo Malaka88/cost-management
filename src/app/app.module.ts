@@ -16,6 +16,8 @@ import { HomePageComponent } from './features/home/home-page/home-page.component
 import { VariableCostPageComponent } from './features/spending/containers/variable-cost-page/variable-cost-page.component';
 import { IncomePageComponent } from './features/income/containers/income-page/income-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
+import { AssetsOverviewPageComponent } from './features/assets/containers/assets-overview-page/assets-overview-page.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FixedCostComponent,
     HomePageComponent,
     VariableCostPageComponent,
-    IncomePageComponent
+    IncomePageComponent,
+    AssetsOverviewPageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDividerModule,
     LayoutModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
