@@ -19,8 +19,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AssetsOverviewPageComponent } from './features/assets/containers/assets-overview-page/assets-overview-page.component';
 import { MatTableModule } from '@angular/material/table';
-import { IncomeComponent } from './features/income/components/income/income.component'
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateIncomeDialogComponent } from './features/income/containers/create-income-dialog/create-income-dialog.component';;
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,7 @@ import { IncomeComponent } from './features/income/components/income/income.comp
     VariableCostPageComponent,
     IncomePageComponent,
     AssetsOverviewPageComponent,
-    IncomeComponent
+    CreateIncomeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +50,12 @@ import { IncomeComponent } from './features/income/components/income/income.comp
     MatListModule,
     FlexLayoutModule,
     NgxChartsModule,
-    MatTableModule
-
+    MatTableModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Einkommen hinzufügen</h1>
+<div mat-dialog-content>
+    <form [formGroup]="incomeForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Herkunft</mat-label>
+            <input matInput formControlName="origin">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Einkommen</mat-label>
+            <input matInput formControlName="incomeMoney" type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="example-full-width">
+            <mat-label>Datum auswählen</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="incomeDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+    </form>
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+    <button mat-button (click)="cancel()">Abbrechen</button>
+    <button mat-raised-button [disabled]="!incomeForm.valid" (click)="save()">Speichern</button>
+</div>
