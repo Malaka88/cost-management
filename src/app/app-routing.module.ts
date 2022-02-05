@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AssetsOverviewPageComponent } from './features/assets/containers/assets-overview-page/assets-overview-page.component';
+import { ContractPageComponent } from './features/contract/container/contract-page/contract-page.component';
 import { HomePageComponent } from './features/home/home-page/home-page.component';
 import { IncomePageComponent } from './features/income/containers/income-page/income-page.component';
 import { FixedCostPageComponent } from './features/spending/containers/fixed-cost-page/fixed-cost-page.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'variable-cost', component: VariableCostPageComponent },
   { path: 'income', component: IncomePageComponent },
   { path: 'assets-overview', component: AssetsOverviewPageComponent },
+  { path: 'contract', component: ContractPageComponent },
 ];
 
 @NgModule({

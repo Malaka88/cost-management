@@ -25,6 +25,9 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ContractPageComponent } from './features/contract/container/contract-page/contract-page.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     VariableCostPageComponent,
     IncomePageComponent,
     AssetsOverviewPageComponent,
-    CreateIncomeDialogComponent
+    CreateIncomeDialogComponent,
+    ContractPageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
