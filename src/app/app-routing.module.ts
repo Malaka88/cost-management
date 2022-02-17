@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountBookingComponent } from './features/accounts/components/account-booking/account-booking.component';
+import { AccountPageComponent } from './features/accounts/containers/account-page/account-page.component';
 import { AssetsOverviewPageComponent } from './features/assets/containers/assets-overview-page/assets-overview-page.component';
 import { ContractPageComponent } from './features/contract/container/contract-page/contract-page.component';
 import { HomePageComponent } from './features/home/home-page/home-page.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'income', component: IncomePageComponent },
   { path: 'assets-overview', component: AssetsOverviewPageComponent },
   { path: 'contract', component: ContractPageComponent },
+  { path: 'accounts', component: AccountPageComponent },
+  { path: 'accounts/overview/:sc', component: AccountBookingComponent },
 ];
 
 @NgModule({

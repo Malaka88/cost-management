@@ -1,10 +1,10 @@
-<mat-toolbar color="primary" class="example-toolbar">
+<mat-toolbar color="primary" class="tb">
     <button mat-icon-button (click)="isExpanded = !isExpanded">
         <mat-icon>menu</mat-icon>
     </button>
     <h1 class="example-app-name">FinanceMT</h1>
     <span fxFlex></span>
-    <mat-icon class="icon-display">face</mat-icon>
+    <mat-icon class="icon-display">person</mat-icon>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
     <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
@@ -27,12 +27,16 @@
                 <a mat-list-item routerLink="/fixed-cost">Fixkosten</a>
                 <a mat-list-item routerLink="/variable-cost">Variable Kosten</a>
             </div>
+            <mat-list-item routerLink="/accounts">
+                <span class="full-width" *ngIf="isExpanded">Konten</span>
+                <mat-icon mat-list-icon>list_alt</mat-icon>
+            </mat-list-item>
             <mat-list-item routerLink="/assets-overview">
                 <span class="full-width" *ngIf="isExpanded">Assets</span>
                 <mat-icon mat-list-icon>show_chart</mat-icon>
             </mat-list-item>
             <mat-list-item routerLink="/contract">
-                <span class="full-width" *ngIf="isExpanded" >Verträge</span>
+                <span class="full-width" *ngIf="isExpanded">Verträge</span>
                 <mat-icon mat-list-icon>list_alt</mat-icon>
             </mat-list-item>
         </mat-nav-list>

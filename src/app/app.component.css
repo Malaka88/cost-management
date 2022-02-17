@@ -1,6 +1,9 @@
 .example-container {
     height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 64px;
+    width: 100%;
 }
 
 
@@ -34,5 +37,5 @@
 }
 
 .icon-display {
-    transform: scale(1.7);
- }
+    transform: scale(1.5);
+}

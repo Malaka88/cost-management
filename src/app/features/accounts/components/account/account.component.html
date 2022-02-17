@@ -1,0 +1,11 @@
+<h1>Kontenübersicht</h1>
+<div *ngFor="let card of cards">
+    <div class="custom-card" fxLayout="row" fxLayoutAlign="space-between center" routerLink="overview/{{card.route}}">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <img src="{{card.imgPath}}" alt="vk">
+            <div style="width:20px;"></div>
+            <h1>{{card.title}}</h1>
+        </div>
+        <h1>{{card.amount}} €</h1>
+    </div>
+</div>

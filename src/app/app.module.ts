@@ -28,6 +28,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ContractPageComponent } from './features/contract/container/contract-page/contract-page.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
+import { AccountPageComponent } from './features/accounts/containers/account-page/account-page.component';
+import { AccountComponent } from './features/accounts/components/account/account.component';
+import { AccountBookingComponent } from './features/accounts/components/account-booking/account-booking.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { MatCardModule } from '@angular/material/card';
     IncomePageComponent,
     AssetsOverviewPageComponent,
     CreateIncomeDialogComponent,
-    ContractPageComponent
+    ContractPageComponent,
+    AccountPageComponent,
+    AccountComponent,
+    AccountBookingComponent
   ],
   imports: [
     BrowserModule,
