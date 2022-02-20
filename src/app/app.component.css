@@ -9,6 +9,7 @@
 
 .example-sidenav {
     user-select: none;
+    width: 200px;
 }
 
 .full-width {

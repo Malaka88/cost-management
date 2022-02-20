@@ -18,7 +18,9 @@
             </app-custom-card>
         </mat-tab>
         <mat-tab label="Visualisierung">
-
+            <ngx-charts-pie-chart [results]="single2" [gradient]="gradient" [trimLabels]="trimLabels"
+                [legend]="showLegend" [labels]="showLabels" [doughnut]="isDoughnut">
+            </ngx-charts-pie-chart>
         </mat-tab>
     </mat-tab-group>
 </div>

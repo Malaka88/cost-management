@@ -7,7 +7,68 @@ import { CustomCardModel } from 'src/app/models/custom-card-model';
   styleUrls: ['./fixed-cost-page.component.css']
 })
 export class FixedCostPageComponent {
+  view: any[] = [700, 400];
 
+  // options
+  gradient: boolean = false;
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+  isDoughnut: boolean = false;
+  trimLabels = false;
+  legendPosition: string = 'below';
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
+
+  single = [
+    {
+      "name": "Haushalt",
+      "value": 910
+    },
+    {
+      "name": "Versicherungen",
+      "value": 55
+    },
+    {
+      "name": "Abonnements",
+      "value": 34.97
+    },
+  ];
+
+  single2 = [
+    {
+      "name": "Miete",
+      "value": 800
+    },
+    {
+      "name": "Internet",
+      "value": 40
+    },
+    {
+      "name": "Strom",
+      "value": 70
+    },
+    {
+      "name": "Netflix",
+      "value": 12.99
+    },
+    {
+      "name": "Spotify",
+      "value": 9.99
+    },
+    {
+      "name": "Disney +",
+      "value": 11.99
+    },
+    {
+      "name": "Berufsunfähigkeitsversicherung",
+      "value": 50
+    },
+    {
+      "name": "Hausratsversicherung",
+      "value": 5
+    },
+  ];
   householdCards: CustomCardModel[] = [
     {
       title: 'Miete',
