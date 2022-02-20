@@ -1,48 +1,31 @@
-<h1>Verträge</h1>
-
-<div *ngFor="let contract of contracts">
-
-    <mat-card class="card">
-        <mat-card-header>
-            <mat-card-title> {{contract.name}} mit {{contract.cost}} € pro Monat </mat-card-title>
-            <mat-card-subtitle>{{contract.category}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
-            <div fxFlex="80">
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-            </div>
-            <div fxFlex="20">
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-            </div>
-        </mat-card-content>
-        <mat-card-actions fxLayoutAlign="end center">
-            <button mat-button>Bearbeiten</button>
-        </mat-card-actions>
-    </mat-card>
-    <br>
-</div>
-
-<!-- <mat-accordion *ngFor="let contract of contracts">
-    <mat-expansion-panel>
-        <mat-expansion-panel-header style="height: 50px;">
-            <mat-panel-title>
-                <div> {{contract.category}}</div>
-            </mat-panel-title>
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Verträge">
+        <div *ngFor="let contract of contracts">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title> {{contract.name}} mit {{contract.cost}} € pro Monat </mat-card-title>
+                    <mat-card-subtitle>{{contract.category}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
+                    <div fxFlex="80">
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </div>
+                    <div fxFlex="20">
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </div>
+                </mat-card-content>
+                <mat-card-actions fxLayoutAlign="end center">
+                    <button mat-button>Bearbeiten</button>
+                </mat-card-actions>
+            </mat-card>
             <br>
-            <mat-panel-title>
-                <div> {{contract.name}}</div>
-            </mat-panel-title>
-            <mat-panel-description>
-                {{contract.cost}} € pro Monat
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>This is the primary content of the panel.</p>
-        <p>This is the primary content of the panel.</p>
-        <p>This is the primary content of the panel.</p>
-        <p>This is the primary content of the panel.</p>
-    </mat-expansion-panel>
-</mat-accordion> -->
+        </div>
+    </mat-tab>
+    <mat-tab label="Abonnements">
+
+    </mat-tab>
+</mat-tab-group>

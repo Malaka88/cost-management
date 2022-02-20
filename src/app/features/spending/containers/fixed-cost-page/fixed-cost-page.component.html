@@ -1,1 +1,25 @@
-<p>fixed-cost-page works!</p>
+<h1>Fixkosten</h1>
+
+<div>
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Daten" c>
+            <br>
+            <h3>Gesamt: 1000 €</h3>
+            <h3>Haushalt</h3>
+            <app-custom-card *ngFor="let household of householdCards" [customCard]="household">
+            </app-custom-card>
+
+            <h3>Versicherungen</h3>
+            <app-custom-card *ngFor="let abo of insuranceCards" [customCard]="abo">
+            </app-custom-card>
+
+            <h3>Abonnements</h3>
+            <app-custom-card *ngFor="let abo of aboCards" [customCard]="abo">
+            </app-custom-card>
+        </mat-tab>
+        <mat-tab label="Visualisierung">
+
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<br>

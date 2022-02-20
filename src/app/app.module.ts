@@ -11,7 +11,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FixedCostPageComponent } from './features/spending/containers/fixed-cost-page/fixed-cost-page.component';
-import { FixedCostComponent } from './features/spending/components/fixed-cost/fixed-cost.component';
 import { HomePageComponent } from './features/home/home-page/home-page.component';
 import { VariableCostPageComponent } from './features/spending/containers/variable-cost-page/variable-cost-page.component';
 import { IncomePageComponent } from './features/income/containers/income-page/income-page.component';
@@ -31,12 +30,13 @@ import { MatCardModule } from '@angular/material/card';
 import { AccountPageComponent } from './features/accounts/containers/account-page/account-page.component';
 import { AccountComponent } from './features/accounts/components/account/account.component';
 import { AccountBookingComponent } from './features/accounts/components/account-booking/account-booking.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CustomCardComponent } from './shared/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FixedCostPageComponent,
-    FixedCostComponent,
     HomePageComponent,
     VariableCostPageComponent,
     IncomePageComponent,
@@ -45,7 +45,8 @@ import { AccountBookingComponent } from './features/accounts/components/account-
     ContractPageComponent,
     AccountPageComponent,
     AccountComponent,
-    AccountBookingComponent
+    AccountBookingComponent,
+    CustomCardComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +69,7 @@ import { AccountBookingComponent } from './features/accounts/components/account-
     MatNativeDateModule,
     MatExpansionModule,
     MatCardModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
