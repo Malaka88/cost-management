@@ -18,9 +18,14 @@
             </app-custom-card>
         </mat-tab>
         <mat-tab label="Visualisierung">
-            <ngx-charts-pie-chart [results]="single2" [gradient]="gradient" [trimLabels]="trimLabels"
-                [legend]="showLegend" [labels]="showLabels" [doughnut]="isDoughnut">
-            </ngx-charts-pie-chart>
+
+            <!-- <div id="chart">
+                <apx-chart [series]="series" [chart]="chartPie" [labels]="labels" [legend]="legend"></apx-chart>
+            </div> -->
+            <div id="chart">
+                <apx-chart [series]="seriesDetail" [chart]="chartPie" [labels]="labelsDetail" [legend]="legend"></apx-chart>
+            </div>
+
         </mat-tab>
     </mat-tab-group>
 </div>

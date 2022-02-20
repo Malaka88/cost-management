@@ -32,6 +32,7 @@ import { AccountComponent } from './features/accounts/components/account/account
 import { AccountBookingComponent } from './features/accounts/components/account-booking/account-booking.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CustomCardComponent } from './shared/custom-card/custom-card.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { CustomCardComponent } from './shared/custom-card/custom-card.component'
     MatNativeDateModule,
     MatExpansionModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
