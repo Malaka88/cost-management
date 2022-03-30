@@ -33,7 +33,6 @@ import { AccountBookingComponent } from './features/accounts/components/account-
 import { MatTabsModule } from '@angular/material/tabs';
 import { CustomCardComponent } from './shared/custom-card/custom-card.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { CalculatorComponent } from './features/calculator/calculator.component';
 import { ContractDialogComponent } from './features/contract/contract-dialog/contract-dialog.component';
 
 @NgModule({
@@ -50,7 +49,6 @@ import { ContractDialogComponent } from './features/contract/contract-dialog/con
     AccountComponent,
     AccountBookingComponent,
     CustomCardComponent,
-    CalculatorComponent,
     ContractDialogComponent,
   ],
   imports: [
