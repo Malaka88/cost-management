@@ -10,6 +10,7 @@ import { FixedCostPageComponent } from './features/spending/containers/fixed-cos
 import { VariableCostPageComponent } from './features/spending/containers/variable-cost-page/variable-cost-page.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'fixed-cost', component: FixedCostPageComponent },
   { path: 'variable-cost', component: VariableCostPageComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

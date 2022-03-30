@@ -23,11 +23,15 @@ export class FixedCostPageComponent {
     width: 600,
     type: "pie"
   };
-
+  responsive: ApexResponsive[] = [{
+    breakpoint: undefined,
+    options: {},
+  }];
+  
   legend: ApexLegend = {
     show: true,
-    position: "right",
-    offsetX: -100
+    position: "bottom",
+    // offsetY: 100
   }
 
   householdCards: CustomCardModel[] = [

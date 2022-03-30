@@ -47,7 +47,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     AccountPageComponent,
     AccountComponent,
     AccountBookingComponent,
-    CustomCardComponent
+    CustomCardComponent,
   ],
   imports: [
     BrowserModule,
