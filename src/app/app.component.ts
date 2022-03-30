@@ -8,9 +8,17 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  isExpanded = true;
-  showSubmenu: boolean = false;
-  isShowing = false;
-  showSubSubMenu: boolean = false;
+
   showAssetSubmenu = false;
+  showCalculatorSubmenu = false;
+
+  toggleAssetSubmmenu() {
+    this.showAssetSubmenu = !this.showAssetSubmenu;
+    this.showCalculatorSubmenu = false;
+  }
+
+  toggleCalculatorSubmenu() {
+    this.showCalculatorSubmenu = !this.showCalculatorSubmenu;
+    this.showAssetSubmenu = false;
+  }
 }
