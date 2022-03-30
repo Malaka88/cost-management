@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountBookingComponent } from './features/accounts/components/account-booking/account-booking.component';
 import { AccountPageComponent } from './features/accounts/containers/account-page/account-page.component';
 import { AssetsOverviewPageComponent } from './features/assets/containers/assets-overview-page/assets-overview-page.component';
-import { ContractPageComponent } from './features/contract/container/contract-page/contract-page.component';
+import { CalculatorComponent } from './features/calculator/calculator.component';
+import { ContractPageComponent } from './features/contract/contract-page/contract-page.component';
 import { HomePageComponent } from './features/home/home-page/home-page.component';
-import { IncomePageComponent } from './features/income/containers/income-page/income-page.component';
+import { IncomePageComponent } from './features/income/income-page/income-page.component';
 import { FixedCostPageComponent } from './features/spending/containers/fixed-cost-page/fixed-cost-page.component';
 import { VariableCostPageComponent } from './features/spending/containers/variable-cost-page/variable-cost-page.component';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'contract', component: ContractPageComponent },
   { path: 'accounts', component: AccountPageComponent },
   { path: 'accounts/overview/:sc', component: AccountBookingComponent },
+  { path: 'calculator', component: CalculatorComponent },
 ];
 
 @NgModule({

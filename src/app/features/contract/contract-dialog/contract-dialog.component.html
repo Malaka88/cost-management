@@ -1,0 +1,13 @@
+<h1>{{data.name}}</h1>
+
+<form [formGroup]="contractForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Bezeichnung</mat-label>
+        <input matInput formControlName="name" type="text">
+    </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Abbrechen</button>
+    <button mat-raised-button [disabled]="!contractForm.valid" (click)="submit()">Speichern</button>
+</div>
