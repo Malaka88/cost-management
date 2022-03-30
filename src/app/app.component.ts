@@ -12,4 +12,5 @@ export class AppComponent {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
+  showAssetSubmenu = false;
 }
