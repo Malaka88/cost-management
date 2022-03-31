@@ -4,4 +4,6 @@ export interface Contract {
     description: string,
     category: string,
     provider: string,
+    uuidValue: string;
+    dialogAction: string;
 }

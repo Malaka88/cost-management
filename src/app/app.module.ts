@@ -42,6 +42,9 @@ import { CalendarPageComponent } from './features/calendar/calendar-page/calenda
 import { TaxRelevantDataPageComponent } from './features/tax-relevant-data/tax-relevant-data-page/tax-relevant-data-page.component';
 import { CryptoCurrencyPageComponent } from './features/assets/crypto-currency-page/crypto-currency-page.component';
 import { AssetPricePageComponent } from './features/assets/asset-price-page/asset-price-page.component';
+import { NewContractDialogComponent } from './features/contract/new-contract-dialog/new-contract-dialog.component';
+import { NewAboDialogComponent } from './features/contract/new-abo-dialog/new-abo-dialog.component';
+import { AboDialogComponent } from './features/contract/abo-dialog/abo-dialog.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { AssetPricePageComponent } from './features/assets/asset-price-page/asse
     TaxRelevantDataPageComponent,
     CryptoCurrencyPageComponent,
     AssetPricePageComponent,
+    NewContractDialogComponent,
+    NewAboDialogComponent,
+    AboDialogComponent,
   ],
   imports: [
     BrowserModule,

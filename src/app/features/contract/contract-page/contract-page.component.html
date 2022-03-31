@@ -1,5 +1,12 @@
+<!-- <head>
+    <script type = "text/javascript" src="showAboNameAndCost.js"> </script> 
+    <title>abc</title><meta charset="utf-8"/>
+</head> -->
 <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Verträge">
+        <div mat-dialog-actions>
+            <button mat-raised-button (click)="openDialogAddContract()">Vertrag hinzufügen</button>
+        </div>
         <div *ngFor="let contract of contracts">
             <mat-card class="card">
                 <mat-card-header>
@@ -8,22 +15,41 @@
                 </mat-card-header>
                 <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
                     <div fxFlex="80">
-                        {{contract.description}}
-                    </div>
-                    <div fxFlex="20">
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
+                        Beschreibung: {{contract.description}}
                     </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
-                    <button mat-button (click)="openDialog(contract)">Bearbeiten</button>
+                    <button mat-button (click)="openContractDialog(contract)">Bearbeiten</button>
                 </mat-card-actions>
             </mat-card>
             <br>
         </div>
     </mat-tab>
     <mat-tab label="Abonnements">
+        <div mat-dialog-actions>
+            <button mat-raised-button (click)="openDialogAddAbo()">Abonnement hinzufügen</button>
+        </div>
+        <div *ngFor="let abo of abos">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title> {{abo.name}} mit {{abo.cost}} € pro Monat </mat-card-title>
+                    <mat-card-subtitle>{{abo.category}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
+                    <div fxFlex="80">
+                        Beschreibung: {{abo.description}} <br>
+                        Vertragsnummer: {{abo.contract_number}} <br>
+                        Vertragsstart: {{abo.start_date}} <br>
+                        Vertragsende: {{abo.end_date}} <br>
+                        Kündigungserinnerung: {{abo.cancellation_date}}
+                    </div>
+                </mat-card-content>
+                <mat-card-actions fxLayoutAlign="end center">
+                    <button mat-button (click)="openAboDialog(abo)">Bearbeiten</button>
+                </mat-card-actions>
+            </mat-card>
+            <br>
+        </div>
 
     </mat-tab>
 </mat-tab-group>
