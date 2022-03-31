@@ -1,7 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -45,7 +45,8 @@ import { AssetPricePageComponent } from './features/assets/asset-price-page/asse
 import { NewContractDialogComponent } from './features/contract/new-contract-dialog/new-contract-dialog.component';
 import { NewAboDialogComponent } from './features/contract/new-abo-dialog/new-abo-dialog.component';
 import { AboDialogComponent } from './features/contract/abo-dialog/abo-dialog.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,11 @@ import { AboDialogComponent } from './features/contract/abo-dialog/abo-dialog.co
     AboDialogComponent,
   ],
   imports: [
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
