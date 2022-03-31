@@ -1,7 +1,7 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -42,7 +42,8 @@ import { CalendarPageComponent } from './features/calendar/calendar-page/calenda
 import { TaxRelevantDataPageComponent } from './features/tax-relevant-data/tax-relevant-data-page/tax-relevant-data-page.component';
 import { CryptoCurrencyPageComponent } from './features/assets/crypto-currency-page/crypto-currency-page.component';
 import { AssetPricePageComponent } from './features/assets/asset-price-page/asset-price-page.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,11 @@ import { AssetPricePageComponent } from './features/assets/asset-price-page/asse
     AssetPricePageComponent,
   ],
   imports: [
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
