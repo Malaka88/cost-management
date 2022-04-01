@@ -141,9 +141,9 @@ export class ContractPageComponent implements OnInit {
   dialogContractAction(returnedContract: Contract) {
 
     if (returnedContract.dialogAction == 'delete') {
-      console.log(this.contracts);
       const index = this.contractsWithNote.findIndex(x => x.contract.uuidValue === returnedContract.uuidValue);
       this.contractsWithNote.splice(index, 1);
+      this.contracts.splice(index, 1);
     }
 
     if (returnedContract.dialogAction == 'new') {
@@ -190,13 +190,14 @@ export class ContractPageComponent implements OnInit {
           case "Woche": text = `${c.name} mit ${c.cost} € alle ${c.period_number} Wochen`; break;
           case "Monat": text = `${c.name} mit ${c.cost} € alle ${c.period_number} Monate`; break;
           case "Jahr": text = `${c.name} mit ${c.cost} € alle ${c.period_number} Jahre`; break;
-          default: null;
+          default: "null2";
         }
       }
       let newModel: ContractWithNote = {
         contract: c,
         note: text
       };
+      console.log(newModel);
       this.contractsWithNote.push(newModel);
     });
   }
