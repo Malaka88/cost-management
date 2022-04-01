@@ -126,10 +126,8 @@ export class ContractPageComponent implements OnInit {
   openContractDialog(contract: Contract) {
     var returnedContract: Contract;
     const dialogRef = this.dialog.open(ContractDialogComponent, {
-      data: {
-        contract: contract,
-        action: 1
-      }
+      data:
+        contract
     });
     // dialogRef.afterClosed().subscribe(x => this.contracts.pop());
     dialogRef.afterClosed().subscribe(x => this.dialogContractAction(x));
