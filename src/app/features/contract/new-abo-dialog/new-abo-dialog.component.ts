@@ -35,7 +35,7 @@ export class NewAboDialogComponent implements OnInit {
       cancellation_date: [null],
       contract_number: [null],
     })
-  }
+  } 
 
   closeDialog() {
     this.dialogRef.close(null);
