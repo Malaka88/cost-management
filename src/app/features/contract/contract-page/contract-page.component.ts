@@ -28,7 +28,14 @@ export class ContractPageComponent {
       description: 'Wenn Arm ab',
       provider: 'AXA',
       uuidValue: uuid.v4(),
-      dialogAction: 'none'
+      dialogAction: 'none',
+      contract_number: '85237/0723',
+      start_date: '02.03.2022',
+      end_date: '02.03.2023',
+      cancellation_date: '11.11.2022',
+      withdrawal_date: 19,
+      period_number: 2,
+      period_name: 'Monat',
     },
     {
       name: 'Hausratsversicherung',
@@ -37,7 +44,14 @@ export class ContractPageComponent {
       description: 'Wenn Haus kaputt',
       provider: 'AXA',
       uuidValue: uuid.v4(),
-      dialogAction: 'none'
+      dialogAction: 'none',
+      contract_number: 'AGZ1456/4562',
+      start_date: '02.03.2022',
+      end_date: '02.03.2023',
+      cancellation_date: '11.11.2022',
+      withdrawal_date: 19,
+      period_number: 2,
+      period_name: 'Monat',
     },
     {
       name: 'Haftpflichtversicherung',
@@ -46,7 +60,14 @@ export class ContractPageComponent {
       description: 'Wenn fremdes Fenster kaputt',
       provider: 'AXA',
       uuidValue: uuid.v4(),
-      dialogAction: 'none'
+      dialogAction: 'none',
+      contract_number: '58564142458',
+      start_date: '02.03.2022',
+      end_date: '02.03.2023',
+      cancellation_date: '11.11.2022',
+      withdrawal_date: 19,
+      period_number: 2,
+      period_name: 'Monat',
     }
   ]
 

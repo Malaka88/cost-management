@@ -26,9 +26,13 @@ export class ContractDialogComponent implements OnInit {
     this.contractForm = this.fb.group({
       name: [this.data.name, Validators.required],
       cost: [this.data.cost, Validators.required],
-      description: [this.data.description, Validators.required],
+      description: [this.data.description],
       category: this.data.category,
-      provider: [this.data.provider, Validators.required],
+      provider: [this.data.provider],
+      start_date: [this.data.start_date],
+      end_date: [this.data.end_date],
+      cancellation_date: [this.data.cancellation_date],
+      contract_number: [this.data.contract_number],
     })
   }
 
@@ -42,6 +46,10 @@ export class ContractDialogComponent implements OnInit {
       this.data.cost = this.contractForm.get('cost')?.value;
       this.data.description = this.contractForm.get('description')?.value;
       this.data.provider = this.contractForm.get('provider')?.value;
+      this.data.start_date = this.contractForm.get('start_date')?.value;
+      this.data.end_date = this.contractForm.get('end_date')?.value;
+      this.data.contract_number = this.contractForm.get('contract_number')?.value;
+      this.data.cancellation_date = this.contractForm.get('cancellation_date')?.value;
       this.dialogRef.close(this.data);
     }
 

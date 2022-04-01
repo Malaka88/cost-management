@@ -28,6 +28,10 @@ export class AboDialogComponent implements OnInit {
       cost: [this.data.cost, Validators.required],
       description: [this.data.description, Validators.required],
       category: this.data.category,
+      start_date: [this.data.start_date],
+      end_date: [this.data.end_date],
+      cancellation_date: [this.data.cancellation_date],
+      contract_number: [this.data.contract_number],
     })
   }
 
@@ -40,6 +44,10 @@ export class AboDialogComponent implements OnInit {
       this.data.name = this.aboForm.get('name')?.value;
       this.data.cost = this.aboForm.get('cost')?.value;
       this.data.description = this.aboForm.get('description')?.value;
+      this.data.contract_number = this.aboForm.get('contract_number')?.value;
+      this.data.start_date = this.aboForm.get('start_date')?.value;
+      this.data.end_date = this.aboForm.get('end_date')?.value;
+      this.data.cancellation_date = this.aboForm.get('cancellation_date')?.value;
       this.dialogRef.close(this.data);
     }
 

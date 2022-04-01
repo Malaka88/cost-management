@@ -28,9 +28,13 @@ export class NewContractDialogComponent implements OnInit {
     this.newContractForm = this.fb.group({
       name: [null, Validators.required],
       cost: [null, Validators.required],
-      description: [null, Validators.required],
-      category: null,
-      provider: [null, Validators.required],
+      description: [null],
+      category: [null],
+      provider: [null],
+      start_date: [null],
+      end_date: [null],
+      cancellation_date: [null],
+      contract_number: [null],
     })
   }
 

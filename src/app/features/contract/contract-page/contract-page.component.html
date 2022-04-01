@@ -15,7 +15,12 @@
                 </mat-card-header>
                 <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
                     <div fxFlex="80">
-                        Beschreibung: {{contract.description}}
+                        Anbieter: {{contract.provider}} <br>
+                        Beschreibung: {{contract.description}} <br>
+                        Vertragsnummer: {{contract.contract_number}} <br>
+                        Vertragsstart: {{contract.start_date}} <br>
+                        Vertragsende: {{contract.end_date}} <br>
+                        Kündigungserinnerung: {{contract.cancellation_date}}
                     </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
@@ -50,6 +55,5 @@
             </mat-card>
             <br>
         </div>
-
     </mat-tab>
 </mat-tab-group>

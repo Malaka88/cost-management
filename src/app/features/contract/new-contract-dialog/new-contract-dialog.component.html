@@ -9,12 +9,28 @@
         <input matInput formControlName="cost" type="number">
     </mat-form-field>
     <mat-form-field appearance="fill">
+        <mat-label>Anbieter</mat-label>
+        <input matInput formControlName="provider" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
         <mat-label>Beschreibung</mat-label>
         <input matInput formControlName="description" type="text">
     </mat-form-field>
     <mat-form-field appearance="fill">
-        <mat-label>Anbieter</mat-label>
-        <input matInput formControlName="provider" type="text">
+        <mat-label>Vertragsnummer</mat-label>
+        <input matInput formControlName="contract_number" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Vertragstart</mat-label>
+        <input matInput formControlName="start_date" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Vertragsende</mat-label>
+        <input matInput formControlName="end_date" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Kündigungserinnerung</mat-label>
+        <input matInput formControlName="cancellation_date" type="text">
     </mat-form-field>
 </form>
 <div mat-dialog-actions fxLayoutAlign="end center">

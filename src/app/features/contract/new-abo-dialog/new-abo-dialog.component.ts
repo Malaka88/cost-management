@@ -28,9 +28,12 @@ export class NewAboDialogComponent implements OnInit {
     this.newAboForm = this.fb.group({
       name: [null, Validators.required],
       cost: [null, Validators.required],
-      description: [null, Validators.required],
+      description: [null],
       category: null,
-      provider: [null, Validators.required],
+      start_date: [null],
+      end_date: [null],
+      cancellation_date: [null],
+      contract_number: [null],
     })
   }
 
