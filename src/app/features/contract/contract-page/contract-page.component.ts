@@ -1,25 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { getUniqueXDomainValues } from '@swimlane/ngx-charts';
-import * as uuid from 'uuid';
-import { Contract } from 'src/app/models/contract-model';
 import { Abo } from 'src/app/models/abo-model';
-import { ContractDialogComponent } from '../contract-dialog/contract-dialog.component';
-import { NewContractDialogComponent } from '../new-contract-dialog/new-contract-dialog.component';
+import { Contract, ContractWithNote } from 'src/app/models/contract-model';
+import * as uuid from 'uuid';
+
 import { AboDialogComponent } from '../abo-dialog/abo-dialog.component';
+import { ContractDialogComponent } from '../contract-dialog/contract-dialog.component';
 import { NewAboDialogComponent } from '../new-abo-dialog/new-abo-dialog.component';
-import { APP_BASE_HREF } from '@angular/common';
+import { NewContractDialogComponent } from '../new-contract-dialog/new-contract-dialog.component';
 
 @Component({
   selector: 'app-contract-page',
   templateUrl: './contract-page.component.html',
   styleUrls: ['./contract-page.component.css']
 })
-export class ContractPageComponent {
+export class ContractPageComponent implements OnInit {
+  public contractsWithNote: ContractWithNote[] = [];
 
   constructor(private dialog: MatDialog) {
-
   }
+
+  ngOnInit(): void {
+    this.assignNoteToContract();
+  }
+
   public contracts: Contract[] = [
     {
       name: 'Berufsunfähigkeitsversicherung',
@@ -66,7 +70,7 @@ export class ContractPageComponent {
       end_date: '02.03.2023',
       cancellation_date: '11.11.2022',
       withdrawal_date: 19,
-      period_number: 2,
+      period_number: 1,
       period_name: 'Monat',
     }
   ]
@@ -122,7 +126,10 @@ export class ContractPageComponent {
   openContractDialog(contract: Contract) {
     var returnedContract: Contract;
     const dialogRef = this.dialog.open(ContractDialogComponent, {
-      data: contract
+      data: {
+        contract: contract,
+        action: 1
+      }
     });
     // dialogRef.afterClosed().subscribe(x => this.contracts.pop());
     dialogRef.afterClosed().subscribe(x => this.dialogContractAction(x));
@@ -151,7 +158,7 @@ export class ContractPageComponent {
   openAboDialog(abo: Abo) {
     var returnedAbo: Abo;
     const dialogRef = this.dialog.open(AboDialogComponent, {
-      data: abo
+      data: abo,
     });
     // dialogRef.afterClosed().subscribe(x => this.contracts.pop());
     dialogRef.afterClosed().subscribe(x => this.dialogAboAction(x));
@@ -163,32 +170,37 @@ export class ContractPageComponent {
   }
 
   dialogAboAction(returnedAbo: Abo) {
-
     if (returnedAbo.dialogAction == 'delete') {
       console.log(this.abos);
       const index = this.abos.findIndex(x => x.uuidValue === returnedAbo.uuidValue);
       this.abos.splice(index, 1);
-    }
-
-    if (returnedAbo.dialogAction == 'new') {
+    } else if (returnedAbo.dialogAction == 'new') {
       console.log("new");
       console.log(returnedAbo);
       this.abos.push(returnedAbo);
     }
   }
 
-  showAboNameAndCost(abo: Abo) : string{
-    console.log("showAboNameAndCost");
-    if(abo.period_number == 1){
-      return abo.name + " mit " + abo.cost + " € pro " + abo.period_name; 
-    }else{
-      switch(abo.period_name){
-        case "Woche": return abo.name + " mit " + abo.cost + " € alle " + abo.period_number + " " + abo.period_name + "en"; break;
-        case "Monat": return abo.name + " mit " + abo.cost + " € alle " + abo.period_number + " " + abo.period_name + "e"; break;
-        case "Jahr": return abo.name + " mit " + abo.cost + " € alle " + abo.period_number + " " + abo.period_name + "e"; break;
-        default: return abo.name + " mit " + abo.cost + " € pro " + abo.period_name; 
-      } 
-    }
+  private assignNoteToContract() {
+    let text: string = '';
+    this.contracts.forEach(c => {
+      if (c.period_number == 1) {
+        text = `${c.name} mit ${c.cost} € pro ${c.period_name}`;
+      } else {
+        switch (c.period_name) {
+          case "Woche": text = `${c.name} mit ${c.cost} € alle ${c.period_number} Wochen`; break;
+          case "Monat": text = `${c.name} mit ${c.cost} € alle ${c.period_number} Monate`; break;
+          case "Jahr": text = `${c.name} mit ${c.cost} € alle ${c.period_number} Jahre`; break;
+          default: null;
+        }
+      }
+      let newModel: ContractWithNote = {
+        contract: c,
+        note: text
+      };
+      this.contractsWithNote.push(newModel);
+    });
   }
 
 }
+

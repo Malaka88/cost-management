@@ -10,7 +10,6 @@ import { Contract } from 'src/app/models/contract-model';
   styleUrls: ['./contract-dialog.component.css']
 })
 export class ContractDialogComponent implements OnInit {
-
   public contractForm: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<ContractDialogComponent>,
@@ -57,7 +56,7 @@ export class ContractDialogComponent implements OnInit {
 
   delete() {
     if (this.contractForm.valid) {
-      this.data.dialogAction='delete'
+      this.data.dialogAction = 'delete'
       this.dialogRef.close(this.data);
     }
 

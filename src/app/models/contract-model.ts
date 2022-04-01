@@ -9,8 +9,13 @@ export interface Contract {
     contract_number: string;
     start_date: string;
     end_date: string;
-    cancellation_date : string;
+    cancellation_date: string;
     withdrawal_date: number;
     period_number: number;
     period_name: string;
+}
+
+export interface ContractWithNote {
+    contract: Contract,
+    note: string
 }
