@@ -142,14 +142,15 @@ export class ContractPageComponent implements OnInit {
 
     if (returnedContract.dialogAction == 'delete') {
       console.log(this.contracts);
-      const index = this.contracts.findIndex(x => x.uuidValue === returnedContract.uuidValue);
-      this.contracts.splice(index, 1);
+      const index = this.contractsWithNote.findIndex(x => x.contract.uuidValue === returnedContract.uuidValue);
+      this.contractsWithNote.splice(index, 1);
     }
 
     if (returnedContract.dialogAction == 'new') {
       console.log("new");
       console.log(returnedContract);
       this.contracts.push(returnedContract);
+      this.assignNoteToContract();
     }
   }
 
