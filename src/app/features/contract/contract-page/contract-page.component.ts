@@ -6,7 +6,6 @@ import * as uuid from 'uuid';
 
 import { AboDialogComponent } from '../abo-dialog/abo-dialog.component';
 import { ContractDialogComponent } from '../contract-dialog/contract-dialog.component';
-import { NewAboDialogComponent } from '../new-abo-dialog/new-abo-dialog.component';
 import { NewContractDialogComponent } from '../new-contract-dialog/new-contract-dialog.component';
 
 @Component({
@@ -123,6 +122,22 @@ export class ContractPageComponent implements OnInit {
     }
   ]
 
+  public emptyAbo: Abo = {
+      name: '',
+      category: '',
+      cost: 0,
+      description: '',
+      uuidValue: uuid.v4(),
+      dialogAction: '',
+      contract_number: '',
+      start_date: '',
+      end_date: '',
+      cancellation_date: '',
+      withdrawal_date: 0,
+      period_number: 0,
+      period_name: '',
+  }
+
   openContractDialog(contract: Contract) {
     var returnedContract: Contract;
     const dialogRef = this.dialog.open(ContractDialogComponent, {
@@ -154,17 +169,12 @@ export class ContractPageComponent implements OnInit {
     }
   }
 
-  openAboDialog(abo: Abo) {
+  openAboDialog(abo: Abo, delBtnIsVisible:Boolean) {
     var returnedAbo: Abo;
     const dialogRef = this.dialog.open(AboDialogComponent, {
-      data: abo,
+        data: {abo: abo , btn : delBtnIsVisible}
     });
     // dialogRef.afterClosed().subscribe(x => this.contracts.pop());
-    dialogRef.afterClosed().subscribe(x => this.dialogAboAction(x));
-  }
-
-  openDialogAddAbo() {
-    const dialogRef = this.dialog.open(NewAboDialogComponent);
     dialogRef.afterClosed().subscribe(x => this.dialogAboAction(x));
   }
 

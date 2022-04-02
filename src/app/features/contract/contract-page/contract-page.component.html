@@ -22,6 +22,7 @@
                         Vertragsende: {{contract.contract.end_date}} <br>
                         Kündigungserinnerung: {{contract.contract.cancellation_date}}
                     </div>
+                    
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
                     <button mat-button (click)="openContractDialog(contract.contract)">Bearbeiten</button>
@@ -31,8 +32,10 @@
         </div>
     </mat-tab>
     <mat-tab label="Abonnements">
+        <div >
         <div mat-dialog-actions>
-            <button mat-raised-button (click)="openDialogAddAbo()">Abonnement hinzufügen</button>
+            <button mat-raised-button (click)="openAboDialog(emptyAbo,false)">Abonnement hinzufügen</button>
+        </div>
         </div>
         <div *ngFor="let abo of abos">
             <mat-card class="card">
@@ -40,17 +43,25 @@
                     <mat-card-title> {{abo.name}} mit {{abo.cost}} € pro Monat </mat-card-title>
                     <mat-card-subtitle>{{abo.category}}</mat-card-subtitle>
                 </mat-card-header>
-                <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
-                    <div fxFlex="80">
+                <mat-card-content fxLayout="column" fxLayoutAlign="space-between start" style="margin-left:15px">
+                    <div fxFlex="80" *ngIf="abo.description != null">
                         Beschreibung: {{abo.description}} <br>
-                        Vertragsnummer: {{abo.contract_number}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="abo.contract_number != null">
+                        Vertragsnummer: {{abo.contract_number}}<br>
+                    </div>
+                    <div fxFlex="80" *ngIf="abo.start_date != null">
                         Vertragsstart: {{abo.start_date}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="abo.end_date != null">
                         Vertragsende: {{abo.end_date}} <br>
-                        Kündigungserinnerung: {{abo.cancellation_date}}
+                    </div>
+                    <div fxFlex="80" *ngIf="abo.cancellation_date != null">
+                        Kündigungserinnerung: {{abo.cancellation_date}} <br>
                     </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
-                    <button mat-button (click)="openAboDialog(abo)">Bearbeiten</button>
+                    <button mat-button (click)="openAboDialog(abo,true)">Bearbeiten</button>
                 </mat-card-actions>
             </mat-card>
             <br>

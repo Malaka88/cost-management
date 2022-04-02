@@ -43,7 +43,6 @@ import { TaxRelevantDataPageComponent } from './features/tax-relevant-data/tax-r
 import { CryptoCurrencyPageComponent } from './features/assets/crypto-currency-page/crypto-currency-page.component';
 import { AssetPricePageComponent } from './features/assets/asset-price-page/asset-price-page.component';
 import { NewContractDialogComponent } from './features/contract/new-contract-dialog/new-contract-dialog.component';
-import { NewAboDialogComponent } from './features/contract/new-abo-dialog/new-abo-dialog.component';
 import { AboDialogComponent } from './features/contract/abo-dialog/abo-dialog.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
@@ -74,7 +73,6 @@ import { RegisterComponent } from './features/register/register.component';
     CryptoCurrencyPageComponent,
     AssetPricePageComponent,
     NewContractDialogComponent,
-    NewAboDialogComponent,
     AboDialogComponent,
     LoginComponent,
     RegisterComponent,
