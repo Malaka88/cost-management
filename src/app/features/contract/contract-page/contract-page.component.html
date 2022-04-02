@@ -31,8 +31,10 @@
         </div>
     </mat-tab>
     <mat-tab label="Abonnements">
+        <div >
         <div mat-dialog-actions>
-            <button mat-raised-button (click)="openDialogAddAbo()">Abonnement hinzufügen</button>
+            <button mat-raised-button (click)="openAboDialog(emptyAbo,false)">Abonnement hinzufügen</button>
+        </div>
         </div>
         <div *ngFor="let abo of abos">
             <mat-card class="card">
@@ -50,7 +52,7 @@
                     </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
-                    <button mat-button (click)="openAboDialog(abo)">Bearbeiten</button>
+                    <button mat-button (click)="openAboDialog(abo,true)">Bearbeiten</button>
                 </mat-card-actions>
             </mat-card>
             <br>

@@ -1,4 +1,4 @@
-<h1>{{data.name}}</h1>
+<h1>{{data.abo.name}}</h1>
 
 <form [formGroup]="aboForm">
     <mat-form-field appearance="fill">
@@ -18,7 +18,7 @@
         <input matInput formControlName="contract_number" type="text">
     </mat-form-field>
     <mat-form-field appearance="fill">
-        <mat-label>Vertragstart</mat-label>
+        <mat-label>Vertragsstart</mat-label>
         <input matInput formControlName="start_date" type="text">
     </mat-form-field>
     <mat-form-field appearance="fill">
@@ -33,6 +33,6 @@
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>
     <button mat-raised-button>Dokument</button>​
-    <button mat-raised-button [disabled]="data.name.length==0" (click)="delete()" >Löschen</button>
+    <button mat-raised-button [disabled]="data.abo.name.length==0" (click)="delete()" *ngIf="data.btn" >Löschen</button>
     <button mat-raised-button [disabled]="!aboForm.valid" (click)="submit()">Speichern</button>
 </div>
