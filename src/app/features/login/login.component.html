@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutAlign="start center" style="margin-top: 5%;">
+    <h1>Log In</h1>
+    <form [formGroup]="logInForm">
+        <mat-form-field appearance="fill">
+            <mat-label>E-Mail</mat-label>
+            <input matInput formControlName="email" type="text">
+        </mat-form-field> <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Passwort</mat-label>
+            <input matInput formControlName="password" type="text">
+        </mat-form-field>
+    </form>
+    <button mat-button>Passwort vergessen</button>
+    <button mat-button (click)="register()">Registrieren</button>
+    <button mat-raised-button (click)="logIn()" routerLink="home">Einloggen</button>
+</div>

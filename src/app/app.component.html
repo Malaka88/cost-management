@@ -4,10 +4,14 @@
     </button> -->
     <h1 class="example-app-name">FinanceMT</h1>
     <span fxFlex></span>
-    <mat-icon class="icon-display">person</mat-icon>
+    <mat-icon class="icon-display" [matMenuTriggerFor]="menu">person</mat-icon>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logOut()">Abmelden</button>
+    </mat-menu>
+
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
-    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" *ngIf="isLoggedIn">
         <mat-nav-list>
             <mat-list-item routerLink="/home">
                 <span class="full-width">Start</span>

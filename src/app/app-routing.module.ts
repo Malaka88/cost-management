@@ -17,29 +17,31 @@ import { TaxRelevantDataPageComponent } from './features/tax-relevant-data/tax-r
 import { SavingsRatePageComponent } from './features/calculator/savings-rate-page/savings-rate-page.component';
 import { AssetPricePageComponent } from './features/assets/asset-price-page/asset-price-page.component';
 import { CryptoCurrencyPageComponent } from './features/assets/crypto-currency-page/crypto-currency-page.component';
+import { LoginComponent } from './features/login/login.component';
+import { AuthGuardService } from './features/login/auth-guard.service';
+import { RegisterComponent } from './features/register/register.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
-  { path: 'fixed-cost', component: FixedCostPageComponent },
-  { path: 'variable-cost', component: VariableCostPageComponent },
-  { path: 'spending', component: SpedingPageComponent },
-  { path: 'income', component: IncomePageComponent },
-  { path: 'contract', component: ContractPageComponent },
-  { path: 'accounts', component: AccountComponent },
-  { path: 'accounts/overview/:sc', component: AccountBookingComponent },
-  { path: 'credit-card', component: CreditCardPageComponent },
-  { path: 'calendar', component: CalendarPageComponent },
-  { path: 'savings-plan', component: SavingsPlanPageComponent },
-
-  { path: 'savings-rate', component: SavingsRatePageComponent },
-  { path: 'financial-freedom', component: FinancialFreedomPageComponent },
-
-  { path: 'tax-relevant', component: TaxRelevantDataPageComponent },
-
-  { path: 'price', component: AssetPricePageComponent },
-  { path: 'asset-overview', component: AssetsOverviewPageComponent },
-  { path: 'crypto', component: CryptoCurrencyPageComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomePageComponent, canActivate: [AuthGuardService] },
+  { path: 'fixed-cost', component: FixedCostPageComponent, canActivate: [AuthGuardService] },
+  { path: 'variable-cost', component: VariableCostPageComponent, canActivate: [AuthGuardService] },
+  { path: 'spending', component: SpedingPageComponent, canActivate: [AuthGuardService] },
+  { path: 'income', component: IncomePageComponent, canActivate: [AuthGuardService] },
+  { path: 'contract', component: ContractPageComponent, canActivate: [AuthGuardService] },
+  { path: 'accounts', component: AccountComponent, canActivate: [AuthGuardService] },
+  { path: 'accounts/overview/:sc', component: AccountBookingComponent, canActivate: [AuthGuardService] },
+  { path: 'credit-card', component: CreditCardPageComponent, canActivate: [AuthGuardService] },
+  { path: 'calendar', component: CalendarPageComponent, canActivate: [AuthGuardService] },
+  { path: 'savings-plan', component: SavingsPlanPageComponent, canActivate: [AuthGuardService] },
+  { path: 'savings-rate', component: SavingsRatePageComponent, canActivate: [AuthGuardService] },
+  { path: 'financial-freedom', component: FinancialFreedomPageComponent, canActivate: [AuthGuardService] },
+  { path: 'tax-relevant', component: TaxRelevantDataPageComponent, canActivate: [AuthGuardService] },
+  { path: 'price', component: AssetPricePageComponent, canActivate: [AuthGuardService] },
+  { path: 'asset-overview', component: AssetsOverviewPageComponent, canActivate: [AuthGuardService] },
+  { path: 'crypto', component: CryptoCurrencyPageComponent, canActivate: [AuthGuardService] },
 
 ];
 

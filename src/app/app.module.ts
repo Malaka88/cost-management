@@ -47,6 +47,10 @@ import { NewAboDialogComponent } from './features/contract/new-abo-dialog/new-ab
 import { AboDialogComponent } from './features/contract/abo-dialog/abo-dialog.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { LoginComponent } from './features/login/login.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { AuthGuardService } from './features/login/auth-guard.service';
+import { RegisterComponent } from './features/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +76,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     NewContractDialogComponent,
     NewAboDialogComponent,
     AboDialogComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     CalendarModule.forRoot({
@@ -101,8 +107,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     MatCardModule,
     MatTabsModule,
     NgApexchartsModule,
+    MatMenuModule,
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+
+<div fxLayout="column" fxLayoutAlign="start center" style="margin-top: 5%;">
+    <h1>Registrieren</h1>
+    <form [formGroup]="registerForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Vorname</mat-label>
+            <input matInput formControlName="firstName" type="text">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Nachname</mat-label>
+            <input matInput formControlName="lastName" type="text">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>E-Mail</mat-label>
+            <input matInput formControlName="email" type="text">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Passwort</mat-label>
+            <input matInput formControlName="password" type="text">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Passwort bestätigen</mat-label>
+            <input matInput formControlName="password2" type="text">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button [disabled]="!registerForm.valid">Registrieren</button>
+</div>
