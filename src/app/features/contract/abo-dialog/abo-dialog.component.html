@@ -16,13 +16,11 @@
         </mat-form-field>
         <mat-form-field appearance="fill" style="margin-left:15px">
             <mat-label>Turnus-Zeitraum</mat-label>
-            <mat-select [(value)]="selectedTurnus">
+            <mat-select formControlName="period_name">
                 <mat-option *ngFor="let t of turnus" [value]="t.value">
                     {{t.viewValue}}
                 </mat-option>
             </mat-select>
-            <!-- <mat-label> Turnus </mat-label>
-            <input matInput formControlName="period_name" type="text"> -->
         </mat-form-field>
     </div>
     <mat-form-field appearance="fill">
@@ -43,10 +41,20 @@
             <input matInput formControlName="end_date" type="text">
         </mat-form-field>
     </div>
-    <mat-form-field appearance="fill">
-        <mat-label>Kündigungserinnerung</mat-label>
-        <input matInput formControlName="cancellation_date" type="text">
-    </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field appearance="fill">
+            <mat-label>Kündigungserinnerung</mat-label>
+            <input matInput formControlName="cancellation_date" type="text">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left:15px">
+            <mat-label>Kategorie</mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let c of categories" [value]="c.value">
+                    {{c.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 </form>
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>

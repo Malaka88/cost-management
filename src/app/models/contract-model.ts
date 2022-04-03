@@ -1,4 +1,5 @@
 export interface Contract {
+    nameAndCost : string,
     name: string,
     cost: number,
     description: string,
@@ -13,9 +14,4 @@ export interface Contract {
     withdrawal_date: number;
     period_number: number;
     period_name: string;
-}
-
-export interface ContractWithNote {
-    contract: Contract,
-    note: string
 }

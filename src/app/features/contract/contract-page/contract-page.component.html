@@ -1,31 +1,36 @@
-<!-- <head>
-    <script type = "text/javascript" src="showAboNameAndCost.js"> </script> 
-    <title>abc</title><meta charset="utf-8"/>
-</head> -->
 <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Verträge">
         <div mat-dialog-actions>
-            <button mat-raised-button (click)="openDialogAddContract()">Vertrag hinzufügen</button>
+            <button mat-raised-button (click)="openContractDialog(emptyContract,false)">Vertrag hinzufügen</button>
         </div>
-        <div *ngFor="let contract of contractsWithNote">
+        <div *ngFor="let contract of contracts">
             <mat-card class="card">
                 <mat-card-header>
-                    <mat-card-title> {{contract.note}}</mat-card-title>
-                    <mat-card-subtitle>{{contract.contract.category}}</mat-card-subtitle>
+                    <mat-card-title> {{contract.nameAndCost}}</mat-card-title>
+                    <mat-card-subtitle>{{contract.category}}</mat-card-subtitle>
                 </mat-card-header>
-                <mat-card-content fxLayout="row" fxLayoutAlign="space-between start" style="margin-left:15px">
-                    <div fxFlex="80">
-                        Anbieter: {{contract.contract.provider}} <br>
-                        Beschreibung: {{contract.contract.description}} <br>
-                        Vertragsnummer: {{contract.contract.contract_number}} <br>
-                        Vertragsstart: {{contract.contract.start_date}} <br>
-                        Vertragsende: {{contract.contract.end_date}} <br>
-                        Kündigungserinnerung: {{contract.contract.cancellation_date}}
+                <mat-card-content fxLayout="column" fxLayoutAlign="space-between start" style="margin-left:15px">
+                    <div fxFlex="80" *ngIf="contract.description != null">
+                        Anbieter: {{contract.provider}} <br>
                     </div>
-                    
+                    <div fxFlex="80" *ngIf="contract.description != null">
+                        Beschreibung: {{contract.description}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="contract.contract_number != null">
+                        Vertragsnummer: {{contract.contract_number}}<br>
+                    </div>
+                    <div fxFlex="80" *ngIf="contract.start_date != null">
+                        Vertragsstart: {{contract.start_date}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="contract.end_date != null">
+                        Vertragsende: {{contract.end_date}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="contract.cancellation_date != null">
+                        Kündigungserinnerung: {{contract.cancellation_date}} <br>
+                    </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
-                    <button mat-button (click)="openContractDialog(contract.contract)">Bearbeiten</button>
+                    <button mat-button (click)="openContractDialog(contract,true)">Bearbeiten</button>
                 </mat-card-actions>
             </mat-card>
             <br>
