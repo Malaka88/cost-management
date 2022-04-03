@@ -9,6 +9,22 @@
         <mat-label>Kosten</mat-label>
         <input matInput formControlName="cost" type="number">
     </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field appearance="fill">
+            <mat-label> Turnus-Intervall </mat-label>
+            <input matInput formControlName="period_number" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left:15px">
+            <mat-label>Turnus-Zeitraum</mat-label>
+            <mat-select [(value)]="selectedTurnus">
+                <mat-option *ngFor="let t of turnus" [value]="t.value">
+                    {{t.viewValue}}
+                </mat-option>
+            </mat-select>
+            <!-- <mat-label> Turnus </mat-label>
+            <input matInput formControlName="period_name" type="text"> -->
+        </mat-form-field>
+    </div>
     <mat-form-field appearance="fill">
         <mat-label>Beschreibung</mat-label>
         <input matInput formControlName="description" type="text">
@@ -17,14 +33,16 @@
         <mat-label>Vertragsnummer</mat-label>
         <input matInput formControlName="contract_number" type="text">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Vertragsstart</mat-label>
-        <input matInput formControlName="start_date" type="text">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label >Vertragsende</mat-label>
-        <input matInput formControlName="end_date" type="text" >
-    </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field appearance="fill">
+            <mat-label>Vertragsstart</mat-label>
+            <input matInput formControlName="start_date" type="text">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left:15px">
+            <mat-label>Vertragsende</mat-label>
+            <input matInput formControlName="end_date" type="text">
+        </mat-form-field>
+    </div>
     <mat-form-field appearance="fill">
         <mat-label>Kündigungserinnerung</mat-label>
         <input matInput formControlName="cancellation_date" type="text">
@@ -33,6 +51,6 @@
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>
     <button mat-raised-button>Dokument</button>​
-    <button mat-raised-button [disabled]="data.abo.name.length==0" (click)="delete()" *ngIf="data.btn" >Löschen</button>
+    <button mat-raised-button [disabled]="data.abo.name.length==0" (click)="delete()" *ngIf="data.btn">Löschen</button>
     <button mat-raised-button [disabled]="!aboForm.valid" (click)="submit()">Speichern</button>
 </div>

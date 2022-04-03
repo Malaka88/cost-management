@@ -1,4 +1,5 @@
 export interface Abo {
+    nameAndCost : string,
     name: string,
     cost: number,
     description: string,

@@ -21,6 +21,7 @@ export class ContractPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.assignNoteToContract();
+    this.assignAboNameAndCost(true,this.emptyAbo);
   }
 
   public contracts: Contract[] = [
@@ -76,6 +77,7 @@ export class ContractPageComponent implements OnInit {
 
   public abos: Abo[] = [
     {
+      nameAndCost: "",
       name: 'Netflix',
       category: 'Video Straming',
       cost: 9.99,
@@ -87,10 +89,11 @@ export class ContractPageComponent implements OnInit {
       end_date: '02.03.2023',
       cancellation_date: '11.11.2022',
       withdrawal_date: 19,
-      period_number: 2,
+      period_number: 3,
       period_name: 'Monat',
     },
     {
+      nameAndCost: "",
       name: 'Spotify',
       category: 'Musik Streaming',
       cost: 4.99,
@@ -106,6 +109,7 @@ export class ContractPageComponent implements OnInit {
       period_name: 'Monat',
     },
     {
+      nameAndCost: "",
       name: 'Disney+',
       category: 'Video Straming',
       cost: 10.99,
@@ -117,25 +121,26 @@ export class ContractPageComponent implements OnInit {
       end_date: '01.01.2023',
       cancellation_date: '10.09.2022',
       withdrawal_date: 3,
-      period_number: 1,
+      period_number: 2,
       period_name: 'Monat',
     }
   ]
 
   public emptyAbo: Abo = {
-      name: '',
-      category: '',
-      cost: 0,
-      description: '',
-      uuidValue: uuid.v4(),
-      dialogAction: '',
-      contract_number: '',
-      start_date: '',
-      end_date: '',
-      cancellation_date: '',
-      withdrawal_date: 0,
-      period_number: 0,
-      period_name: '',
+    nameAndCost: "",
+    name: '',
+    category: '',
+    cost: 0,
+    description: '',
+    uuidValue: uuid.v4(),
+    dialogAction: '',
+    contract_number: '',
+    start_date: '',
+    end_date: '',
+    cancellation_date: '',
+    withdrawal_date: 0,
+    period_number: 0,
+    period_name: '',
   }
 
   openContractDialog(contract: Contract) {
@@ -162,30 +167,27 @@ export class ContractPageComponent implements OnInit {
     }
 
     if (returnedContract.dialogAction == 'new') {
-      console.log("new");
-      console.log(returnedContract);
       this.contracts.push(returnedContract);
       this.assignNoteToContract();
     }
   }
 
-  openAboDialog(abo: Abo, delBtnIsVisible:Boolean) {
+  openAboDialog(abo: Abo, delBtnIsVisible: Boolean) {
     var returnedAbo: Abo;
     const dialogRef = this.dialog.open(AboDialogComponent, {
-        data: {abo: abo , btn : delBtnIsVisible}
+      data: { abo: abo, btn: delBtnIsVisible }
     });
     // dialogRef.afterClosed().subscribe(x => this.contracts.pop());
     dialogRef.afterClosed().subscribe(x => this.dialogAboAction(x));
   }
 
   dialogAboAction(returnedAbo: Abo) {
+    this.assignAboNameAndCost(false, returnedAbo);
     if (returnedAbo.dialogAction == 'delete') {
       console.log(this.abos);
       const index = this.abos.findIndex(x => x.uuidValue === returnedAbo.uuidValue);
       this.abos.splice(index, 1);
     } else if (returnedAbo.dialogAction == 'new') {
-      console.log("new");
-      console.log(returnedAbo);
       this.abos.push(returnedAbo);
     }
   }
@@ -210,6 +212,47 @@ export class ContractPageComponent implements OnInit {
       console.log(newModel);
       this.contractsWithNote.push(newModel);
     });
+  }
+
+
+  // private assignNameAndCost() {
+  //   if (this.abo.period_number == 1) {
+  //     this.abo.nameAndCost = `${this.abo.name} mit ${this.abo.cost} € pro ${this.abo.period_name}`;
+  //   } else {
+  //     switch (this.abo.period_name) {
+  //       case "Woche": this.nameAndCost = `${this.data.abo.name} mit ${this.abo.cost} € alle ${this.abo.period_number} Wochen`; break;
+  //       case "Monat": this.nameAndCost = `${this.data.abo.name} mit ${this.abo.cost} € alle ${this.abo.period_number} Monate`; break;
+  //       case "Jahr": this.nameAndCost = `${this.data.abo.name} mit ${this.abo.cost} € alle ${this.abo.period_number} Jahre`; break;
+  //       default: "null2";
+  //     }
+  // }
+
+  private assignAboNameAndCost(onStart: Boolean, returnedAbo: Abo) {
+    if (onStart) {
+      this.abos.forEach(c => {
+        if (c.period_number == 1) {
+          c.nameAndCost = `${c.name} mit ${c.cost} € pro ${c.period_name}`;
+        } else {
+          switch (c.period_name) {
+            case "Woche": c.nameAndCost = `${c.name} mit ${c.cost} € alle ${c.period_number} Wochen`; break;
+            case "Monat": c.nameAndCost = `${c.name} mit ${c.cost} € alle ${c.period_number} Monate`; break;
+            case "Jahr": c.nameAndCost = `${c.name} mit ${c.cost} € alle ${c.period_number} Jahre`; break;
+            default: "null2";
+          }
+        }
+      });
+    }else{
+      if (returnedAbo.period_number == 1) {
+        returnedAbo.nameAndCost = `${returnedAbo.name} mit ${returnedAbo.cost} € pro ${returnedAbo.period_name}`;
+      } else {
+        switch (returnedAbo.period_name) {
+          case "Woche": returnedAbo.nameAndCost = `${returnedAbo.name} mit ${returnedAbo.cost} € alle ${returnedAbo.period_number} Wochen`; break;
+          case "Monat": returnedAbo.nameAndCost = `${returnedAbo.name} mit ${returnedAbo.cost} € alle ${returnedAbo.period_number} Monate`; break;
+          case "Jahr": returnedAbo.nameAndCost = `${returnedAbo.name} mit ${returnedAbo.cost} € alle ${returnedAbo.period_number} Jahre`; break;
+          default: "null2";
+        }
+      }
+    }
   }
 
 }

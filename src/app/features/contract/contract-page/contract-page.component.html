@@ -40,7 +40,7 @@
         <div *ngFor="let abo of abos">
             <mat-card class="card">
                 <mat-card-header>
-                    <mat-card-title> {{abo.name}} mit {{abo.cost}} € pro Monat </mat-card-title>
+                    <mat-card-title> {{abo.nameAndCost}} </mat-card-title>
                     <mat-card-subtitle>{{abo.category}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content fxLayout="column" fxLayoutAlign="space-between start" style="margin-left:15px">

@@ -50,6 +50,7 @@ import { LoginComponent } from './features/login/login.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AuthGuardService } from './features/login/auth-guard.service';
 import { RegisterComponent } from './features/register/register.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +107,7 @@ import { RegisterComponent } from './features/register/register.component';
     MatTabsModule,
     NgApexchartsModule,
     MatMenuModule,
+    MatSelectModule,
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
