@@ -1,0 +1,13 @@
+<h3>{{stockName}}</h3>
+<section>
+    <mat-button-toggle-group [formControl]="stockNameControl" aria-label="Font Style" value="'month_1'">
+      <mat-button-toggle value="month_1">1M</mat-button-toggle>
+      <mat-button-toggle value="month_2">2M</mat-button-toggle>
+      <mat-button-toggle value="month_6">6M</mat-button-toggle>
+      <mat-button-toggle value="year_1">1J</mat-button-toggle>
+      <mat-button-toggle value="year_2">2J</mat-button-toggle>
+      <mat-button-toggle value="year_3">3J</mat-button-toggle>
+      <mat-button-toggle value="year_5">5J</mat-button-toggle>
+    </mat-button-toggle-group>
+  </section>
+<img src={{path}} alt="stock" width="95%"> 
