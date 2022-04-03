@@ -51,6 +51,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AuthGuardService } from './features/login/auth-guard.service';
 import { RegisterComponent } from './features/register/register.component';
 import { MatSelectModule } from '@angular/material/select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { StockPriceDiagramComponent } from './features/assets/stock-price-diagram/stock-price-diagram.component'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +80,7 @@ import { MatSelectModule } from '@angular/material/select';
     AboDialogComponent,
     LoginComponent,
     RegisterComponent,
+    StockPriceDiagramComponent,
   ],
   imports: [
     CalendarModule.forRoot({
@@ -86,6 +90,7 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    MatButtonToggleModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
