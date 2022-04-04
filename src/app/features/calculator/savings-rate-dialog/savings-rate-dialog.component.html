@@ -1,0 +1,49 @@
+<h1>{{data.savingsRate.name}}</h1>
+
+<form [formGroup]="savingRateForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Bezeichnung</mat-label>
+        <input matInput formControlName="name" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Sparziel</mat-label>
+        <input matInput formControlName="targetValue" type="number">
+    </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field appearance="fill">
+            <mat-label> Turnus-Intervall </mat-label>
+            <input matInput formControlName="periodNumber" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left:15px">
+            <mat-label>Turnus-Zeitraum</mat-label>
+            <mat-select formControlName="periodName">
+                <mat-option *ngFor="let t of turnus" [value]="t.value">
+                    {{t.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Beschreibung</mat-label>
+        <input matInput formControlName="description" type="text">
+    </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field appearance="fill">
+            <mat-label>'Startdatum wählen'</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="startDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill" style="margin-left:15px">
+            <mat-label>Enddatum wählen</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+    </div>
+</form>
+<div mat-dialog-actions fxLayoutAlign="end center">
+    <button mat-button (click)="closeDialog()">Abbrechen</button>​
+    <button mat-raised-button [disabled]="data.savingsRate.name.length==0" (click)="delete()" *ngIf="data.btn">Löschen</button>
+    <button mat-raised-button [disabled]="!savingRateForm.valid" (click)="submit()">Speichern</button>
+</div>

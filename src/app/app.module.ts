@@ -51,7 +51,9 @@ import { AuthGuardService } from './features/login/auth-guard.service';
 import { RegisterComponent } from './features/register/register.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { StockPriceDiagramComponent } from './features/assets/stock-price-diagram/stock-price-diagram.component'; 
+import { StockPriceDiagramComponent } from './features/assets/stock-price-diagram/stock-price-diagram.component';
+import { SavingsRatePageComponent } from './features/calculator/savings-rate-page/savings-rate-page.component';
+import { SavingsRateDialogComponent } from './features/calculator/savings-rate-dialog/savings-rate-dialog.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { StockPriceDiagramComponent } from './features/assets/stock-price-diagra
     LoginComponent,
     RegisterComponent,
     StockPriceDiagramComponent,
+    SavingsRatePageComponent,
+    SavingsRateDialogComponent,
   ],
   imports: [
     CalendarModule.forRoot({

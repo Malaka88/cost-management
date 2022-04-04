@@ -16,7 +16,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill" style="margin-left:15px">
             <mat-label>Turnus-Zeitraum</mat-label>
-            <mat-select formControlName="period_name">
+            <mat-select formControlName="periodName">
                 <mat-option *ngFor="let t of turnus" [value]="t.value">
                     {{t.viewValue}}
                 </mat-option>

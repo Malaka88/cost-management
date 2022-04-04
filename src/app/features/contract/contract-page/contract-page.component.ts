@@ -21,6 +21,7 @@ export class ContractPageComponent implements OnInit {
     this.assignAboNameAndCost(true, this.emptyAbo);
   }
 
+  //Dummy Data for first contract entries
   public contracts: Contract[] = [
     {
       nameAndCost: '',
@@ -75,6 +76,7 @@ export class ContractPageComponent implements OnInit {
     }
   ]
 
+  //Dummy Data for first abo entries
   public abos: Abo[] = [
     {
       nameAndCost: '',

@@ -1,1 +1,34 @@
-<p>savings-rate-page works!</p>
+<div mat-dialog-actions>
+    <button (click)="openDialog(emptyRate,false)" mat-raised-button>Sparratenberechnung hinzufügen</button>
+</div>
+<div *ngFor="let savingsRate of savingsRates">
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title> {{savingsRate.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutAlign="space-between start" style="margin-left:15px">
+        <div fxFlex="80">
+            Beschreibung: {{savingsRate.description}} <br>
+        </div>
+        <div fxFlex="80">
+            Sparziel: {{savingsRate.targetValue}} € <br>
+        </div>
+        <div fxFlex="80">
+            Startdatum: {{savingsRate.startDate | date:"dd.MM.yy"}}  <br>
+        </div>
+        <div fxFlex="80">
+            Endatum: {{savingsRate.endDate | date:"dd.MM.yy"}} <br>
+        </div>
+        <div fxFlex="80">
+            Turnus: {{savingsRate.turnus}} <br>
+        </div>
+        <div fxFlex="80">
+            <b>Sparrate: {{savingsRate.savingRate}}</b> <br>
+        </div>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end center">
+        <button mat-button (click)="openDialog(savingsRate,true)">Bearbeiten</button>
+    </mat-card-actions>
+</mat-card>
+<br>
+</div>
