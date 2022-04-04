@@ -25,7 +25,7 @@ export class SavingsRatePageComponent implements OnInit {
       savingRate: 500,
       startDate: new Date(2022, 2, 15),
       endDate: new Date(2024, 2, 15),
-      description: 'Da das aktuelle Auto bald den Geist aufgibt',
+      description: 'Da das aktuelle Auto in ein paar Jahren den Geist aufgibt',
       name: 'Auto',
       periodName: 'Monat',
       periodNumber: 1,

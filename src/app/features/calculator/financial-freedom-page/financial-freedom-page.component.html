@@ -1,1 +1,30 @@
-<p>financial-freedom-page works!</p>
+<form [formGroup]="finFreeForm">
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Monatlicher Netto-Wunschbetrag</mat-label>
+        <input matInput formControlName="netIncome" type="number" >
+    </mat-form-field> <br>
+    <mat-form-field  appearance="outline">
+        <mat-label>Erwartete Investment-Rendite p.a.:</mat-label>
+        <input matInput formControlName="returnRate" type="number">
+    </mat-form-field> <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Inflation p.a. (optional):</mat-label>
+        <input matInput formControlName="inflation" type="number" >
+    </mat-form-field> <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Steuersatz (optional):</mat-label>
+        <input matInput formControlName="tax" type="number" >
+    </mat-form-field> <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Heutiges Alter</mat-label>
+        <input matInput formControlName="currentAge" type="number">
+    </mat-form-field> <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Wunschrenteneintrittsalter</mat-label>
+        <input matInput formControlName="pensionAge" type="number">
+    </mat-form-field> <br>
+    <div mat-dialog-actions fxLayoutAlign="start center">
+        <button mat-raised-button (click)="calculate()">Berechnen</button>
+    </div>
+</form>
