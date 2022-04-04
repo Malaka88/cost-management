@@ -7,9 +7,9 @@ export interface Abo {
     uuidValue: string;
     dialogAction: string;
     contract_number: string;
-    start_date: string;
-    end_date: string;
-    cancellation_date : string;
+    start_date: Date;
+    end_date: Date;
+    cancellation_date : Date;
     withdrawal_date: number;
     period_number: number;
     period_name: string;

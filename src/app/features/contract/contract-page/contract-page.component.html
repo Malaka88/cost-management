@@ -20,13 +20,13 @@
                         Vertragsnummer: {{contract.contract_number}}<br>
                     </div>
                     <div fxFlex="80" *ngIf="contract.start_date != null">
-                        Vertragsstart: {{contract.start_date}} <br>
+                        Vertragsstart: {{contract.start_date | date:"dd.MM.yy"}} <br>
                     </div>
                     <div fxFlex="80" *ngIf="contract.end_date != null">
-                        Vertragsende: {{contract.end_date}} <br>
+                        Vertragsende: {{contract.end_date | date:"dd.MM.yy"}} <br>
                     </div>
                     <div fxFlex="80" *ngIf="contract.cancellation_date != null">
-                        Kündigungserinnerung: {{contract.cancellation_date}} <br>
+                        Kündigungserinnerung: {{contract.cancellation_date | date:"dd.MM.yy"}} <br>
                     </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">
@@ -56,13 +56,13 @@
                         Vertragsnummer: {{abo.contract_number}}<br>
                     </div>
                     <div fxFlex="80" *ngIf="abo.start_date != null">
-                        Vertragsstart: {{abo.start_date}} <br>
+                        Vertragsstart: {{abo.start_date | date:"dd.MM.yy"}} <br>
                     </div>
                     <div fxFlex="80" *ngIf="abo.end_date != null">
-                        Vertragsende: {{abo.end_date}} <br>
+                        Vertragsende: {{abo.end_date | date:"dd.MM.yy"}} <br>
                     </div>
                     <div fxFlex="80" *ngIf="abo.cancellation_date != null">
-                        Kündigungserinnerung: {{abo.cancellation_date}} <br>
+                        Kündigungserinnerung: {{abo.cancellation_date | date:"dd.MM.yy"}} <br>
                     </div>
                 </mat-card-content>
                 <mat-card-actions fxLayoutAlign="end center">

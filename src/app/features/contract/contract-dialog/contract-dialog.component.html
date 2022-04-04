@@ -36,19 +36,27 @@
         <input matInput formControlName="contract_number" type="text">
     </mat-form-field>
     <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
-        <mat-form-field appearance="fill">
-            <mat-label>Vertragsstart</mat-label>
-            <input matInput formControlName="start_date" type="text">
-        </mat-form-field>
-        <mat-form-field appearance="fill" style="margin-left:15px">
-            <mat-label>Vertragsende</mat-label>
-            <input matInput formControlName="end_date" type="text">
-        </mat-form-field>
+        <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+            <mat-form-field appearance="fill">
+                <mat-label>'Startdatum wählen'</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="start_date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="fill" style="margin-left:15px">
+                <mat-label>Enddatum wählen</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="end_date">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+        </div>
     </div>
     <mat-form-field appearance="fill">
-        <mat-label>Kündigungserinnerung</mat-label>
-        <input matInput formControlName="cancellation_date" type="text">
-    </mat-form-field>
+        <mat-label>Kündigungserinnerung wählen</mat-label>
+        <input matInput [matDatepicker]="picker3" formControlName="cancellation_date">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
 </form>
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>
