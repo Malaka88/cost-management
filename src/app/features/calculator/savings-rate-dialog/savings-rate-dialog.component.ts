@@ -45,7 +45,7 @@ export class SavingsRateDialogComponent implements OnInit {
         targetValue: [this.data.savingsRate.targetValue, Validators.required],
         startDate: [this.data.savingsRate.startDate, Validators.required],
         endDate: [this.data.savingsRate.endDate, Validators.required],
-        description: [this.data.savingsRate.description, Validators.required],
+        description: [this.data.savingsRate.description],
         name: [this.data.savingsRate.name, Validators.required],
         periodName: [this.data.savingsRate.periodName, Validators.required],
         periodNumber: [this.data.savingsRate.periodNumber, Validators.required],
