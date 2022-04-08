@@ -54,6 +54,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { StockPriceDiagramComponent } from './features/assets/stock-price-diagram/stock-price-diagram.component';
 import { SavingsRatePageComponent } from './features/calculator/savings-rate-page/savings-rate-page.component';
 import { SavingsRateDialogComponent } from './features/calculator/savings-rate-dialog/savings-rate-dialog.component';
+import { SpAssetsDialogComponent } from './features/savings-plan/sp-assets-dialog/sp-assets-dialog.component';
+import { SpPaymentDialogComponent } from './features/savings-plan/sp-payment-dialog/sp-payment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { SavingsRateDialogComponent } from './features/calculator/savings-rate-d
     StockPriceDiagramComponent,
     SavingsRatePageComponent,
     SavingsRateDialogComponent,
+    SpAssetsDialogComponent,
+    SpPaymentDialogComponent,
   ],
   imports: [
     CalendarModule.forRoot({

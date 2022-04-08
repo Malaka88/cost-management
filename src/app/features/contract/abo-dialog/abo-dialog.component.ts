@@ -74,6 +74,7 @@ export class AboDialogComponent implements OnInit {
       { value: 'GEZ', viewValue: 'GEZ' },
       { value: 'Zeitschrift', viewValue: 'Zeitschrift' },
       { value: 'Sonstiges', viewValue: 'Sonstiges' },
+      { value: 'Kategorie Hinzufügen', viewValue: 'Kategorie Hinzufügen' },
     ];
   }
 

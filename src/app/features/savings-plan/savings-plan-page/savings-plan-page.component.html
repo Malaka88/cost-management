@@ -1,1 +1,73 @@
-<p>savings-plan-page works!</p>
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Wertpapier">
+        <div mat-dialog-actions>
+            <button mat-raised-button (click)="openAssetDialog(emptyAsset,false)">Sparplan hinzufügen</button>
+        </div>
+        <div *ngFor="let asset of assets">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title> {{asset.nameAndCost}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content fxLayout="column" fxLayoutAlign="space-between start" style="margin-left:15px">
+                    <div fxFlex="80" *ngIf="asset.description != null && asset.description != ''">
+                        Beschreibung: {{asset.description}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="asset.startDate != null">
+                        Startdatum: {{asset.startDate | date:"dd.MM.yy"}}<br>
+                    </div>
+                    <div fxFlex="80" *ngIf="asset.withdrawalDate != null || asset.withdrawalDate != 0">
+                        Einzugsdatum: Am {{asset.withdrawalDate}}. des Monats<br>
+                    </div>
+                    <div fxFlex="80" *ngIf="asset.stock != null">
+                        Wertpapier: {{asset.stock}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="asset.fee != null && asset.fee != 0">
+                        Gebühren: {{asset.fee}} €<br>
+                    </div>
+                    <div fxFlex="80" *ngIf="asset.myAccount != null">
+                        Zu belastendendes Konto: {{asset.myAccount}} <br>
+                    </div>
+                </mat-card-content>
+                    <mat-card-actions fxLayoutAlign="end center">
+                        <button mat-button (click)="openAssetDialog(asset,true)">Bearbeiten</button>
+                    </mat-card-actions>
+            </mat-card>
+            <br>
+        </div>
+    </mat-tab>
+    <mat-tab label="Einzahlungen">
+        <div>
+            <div mat-dialog-actions>
+                <button mat-raised-button (click)="openPaymentDialog(emptyPayment,false)">Sparplan hinzufügen</button>
+            </div>
+        </div>
+        <div *ngFor="let payment of payments">
+            <mat-card class="card">
+                <mat-card-header>
+                    <mat-card-title> {{payment.nameAndCost}} </mat-card-title>
+                </mat-card-header>
+                <mat-card-content fxLayout="column" fxLayoutAlign="space-between start" style="margin-left:15px">
+                    <div fxFlex="80" *ngIf="payment.description != null && payment.description != ''">
+                        Beschreibung: {{payment.description}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="payment.startDate != null">
+                        Startdatum: {{payment.startDate | date:"dd.MM.yy"}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="payment.withdrawalDate != null">
+                        Einzugsdatum: Am {{payment.withdrawalDate}}. des Monats <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="payment.myAccount != null">
+                        Sender-Konto: {{payment.myAccount}} <br>
+                    </div>
+                    <div fxFlex="80" *ngIf="payment.transactionAccount != null">
+                        Empfänger-Konto: {{payment.transactionAccount}} <br>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions fxLayoutAlign="end center">
+                    <button mat-button (click)="openPaymentDialog(payment,true)">Bearbeiten</button>
+                </mat-card-actions>
+            </mat-card>
+            <br>
+        </div>
+    </mat-tab>
+</mat-tab-group>

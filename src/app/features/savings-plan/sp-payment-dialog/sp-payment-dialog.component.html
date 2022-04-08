@@ -1,0 +1,62 @@
+<h1>{{data.payment.name}}</h1>
+
+<form [formGroup]="paymentForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Bezeichnung</mat-label>
+        <input matInput formControlName="name" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Betrag</mat-label>
+        <input matInput formControlName="amount" type="number">
+    </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <mat-form-field appearance="fill">
+            <mat-label> Turnus-Intervall </mat-label>
+            <input matInput formControlName="periodNumber" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="margin-left:15px">
+            <mat-label>Turnus-Zeitraum</mat-label>
+            <mat-select formControlName="periodName">
+                <mat-option *ngFor="let t of turnus" [value]="t.value">
+                    {{t.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Beschreibung</mat-label>
+        <input matInput formControlName="description" type="text">
+    </mat-form-field>
+    <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+        <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
+            <mat-form-field appearance="fill">
+                <mat-label>'Startdatum wählen'</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="margin-left:15px">
+                <mat-label>Einzugsdatum wählen:</mat-label>
+                <input matInput formControlName="withdrawalDate">
+            </mat-form-field>
+        </div>
+    </div>
+    <mat-form-field appearance="fill">
+        <mat-label>Zu belastendes Konto</mat-label>
+        <mat-select formControlName="myAccount">
+            <mat-option *ngFor="let a of accounts" [value]="a.value">
+                {{a.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Empfängerkonto</mat-label>
+        <input matInput formControlName="transactionAccount" type="text">
+    </mat-form-field>
+</form>
+<div mat-dialog-actions fxLayoutAlign="end center">
+    <button mat-button (click)="closeDialog()">Abbrechen</button>​
+    <button mat-raised-button [disabled]="data.payment.name.length==0" (click)="delete()"
+        *ngIf="data.btn">Löschen</button>
+    <button mat-raised-button [disabled]="!paymentForm.valid" (click)="submit()">Speichern</button>
+</div>
