@@ -15,12 +15,14 @@ export class AboDialogComponent implements OnInit {
   public aboForm: FormGroup;
   public turnus: DropDown[];
   public categories: DropDown[];
+  public isTaxRelevevantWhenCreated: Boolean;
+  public isTaxRelevevantWhenEdited: Boolean;
   constructor(
     public dialogRef: MatDialogRef<AboDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
   ) { }
-  
+
   ngOnInit(): void {
     this.initForm();
   }
@@ -41,6 +43,7 @@ export class AboDialogComponent implements OnInit {
         contractNumber: [null],
         periodNumber: [null, Validators.required],
         periodName: [null, Validators.required],
+        isTaxRelevant: [false],
       })
     } else {
       //if dialog was opened with "edit"
@@ -56,7 +59,9 @@ export class AboDialogComponent implements OnInit {
         contractNumber: [this.data.abo.contractNumber],
         periodNumber: [this.data.abo.periodNumber, Validators.required],
         periodName: [this.data.abo.periodName, Validators.required],
+        isTaxRelevant: [this.data.abo.isTaxRelevant],
       })
+      this.isTaxRelevevantWhenEdited = this.data.abo.isTaxRelevant;
     }
 
     //DropDown options for Turnus
@@ -79,6 +84,7 @@ export class AboDialogComponent implements OnInit {
   }
 
   closeDialog() {
+    this.data.abo.isTaxRelevant = this.isTaxRelevevantWhenEdited;
     this.dialogRef.close(null);
   }
 
@@ -89,6 +95,7 @@ export class AboDialogComponent implements OnInit {
         let abo = this.aboForm.value as Abo;
         abo.uuidValue = uuid.v4();
         abo.dialogAction = 'new';
+        abo.isTaxRelevant = this.isTaxRelevevantWhenCreated;
         this.dialogRef.close(abo);
       } else {
         // let tempUuid = this.data.abo.uuid;
@@ -117,5 +124,19 @@ export class AboDialogComponent implements OnInit {
       this.dialogRef.close(this.data.abo);
     }
   }
+
+  onChangeCheckBox(event: any) {
+    if (event.checked && this.data.btn) {
+      this.data.abo.isTaxRelevant = true;
+    } else if (!event.checked && this.data.btn) {
+      this.data.abo.isTaxRelevant = false;
+    } else if (event.checked && !this.data.btn) {
+      this.isTaxRelevevantWhenCreated = true;
+    } else if (!event.checked && !this.data.btn) {
+      this.isTaxRelevevantWhenCreated = false;
+    }
+  }
+
 }
+
 

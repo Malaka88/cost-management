@@ -130,7 +130,7 @@ export class ContractPageComponent implements OnInit {
       withdrawalDate: 3,
       periodNumber: 1,
       periodName: 'Monat',
-      isTaxRelevant: false,
+      isTaxRelevant: true,
     }
   ]
 
@@ -186,7 +186,6 @@ export class ContractPageComponent implements OnInit {
   }
 
   dialogContractAction(returnedContract: Contract) {
-    console.log(returnedContract.dialogAction);
     if (returnedContract.dialogAction == 'delete') {
       //deletes entry
       const index = this.contracts.findIndex(x => x.uuidValue === returnedContract.uuidValue);

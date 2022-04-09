@@ -14,6 +14,8 @@ export class ContractDialogComponent implements OnInit {
 
   public contractForm: FormGroup;
   public turnus: DropDown[];
+  public isTaxRelevevantWhenCreated: Boolean;
+  public isTaxRelevevantWhenEdited: Boolean;
   constructor(
     public dialogRef: MatDialogRef<ContractDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -40,7 +42,7 @@ export class ContractDialogComponent implements OnInit {
         cancellationDate: [null],
         stacontractNumber: [null],
         periodNumber: [null, Validators.required],
-        pperiodName: [null, Validators.required],
+        periodName: [null, Validators.required],
       })
     } else {
       //if dialog was opened with "edit"
@@ -56,8 +58,9 @@ export class ContractDialogComponent implements OnInit {
         cancellationDate: [this.data.contract.cancellationDate],
         stacontractNumber: [this.data.contract.stacontractNumber],
         periodNumber: [this.data.contract.periodNumber, Validators.required],
-        pperiodName: [this.data.contract.pperiodName, Validators.required],
+        periodName: [this.data.contract.periodName, Validators.required],
       })
+      this.isTaxRelevevantWhenEdited = this.data.contract.isTaxRelevant;
     }
 
     //DropDown options for Turnus
@@ -69,6 +72,7 @@ export class ContractDialogComponent implements OnInit {
   }
 
   closeDialog() {
+    this.data.contract.isTaxRelevant = this.isTaxRelevevantWhenEdited;
     this.dialogRef.close(null);
   }
 
@@ -78,6 +82,7 @@ export class ContractDialogComponent implements OnInit {
         let contract = this.contractForm.value as Contract;
         contract.uuidValue = uuid.v4();
         contract.dialogAction = 'new';
+        contract.isTaxRelevant = this.isTaxRelevevantWhenCreated;
         this.dialogRef.close(contract);
       } else {
         // let tempUuid = this.data.abo.uuid;
@@ -93,7 +98,7 @@ export class ContractDialogComponent implements OnInit {
         this.data.contract.endDate = this.contractForm.get('endDate')?.value;
         this.data.contract.stacontractNumber = this.contractForm.get('stacontractNumber')?.value;
         this.data.contract.cancellationDate = this.contractForm.get('cancellationDate')?.value;
-        this.data.contract.pperiodName = this.contractForm.get('pperiodName')?.value;
+        this.data.contract.periodName = this.contractForm.get('periodName')?.value;
         this.data.contract.periodNumber = this.contractForm.get('periodNumber')?.value;
         this.data.contract.dialogAction = 'update';
         this.dialogRef.close(this.data.contract);
@@ -105,6 +110,18 @@ export class ContractDialogComponent implements OnInit {
     if (this.contractForm.valid) {
       this.data.contract.dialogAction = 'delete'
       this.dialogRef.close(this.data.contract);
+    }
+  }
+
+  onChangeCheckBox(event: any) {
+    if (event.checked && this.data.btn) {
+      this.data.contract.isTaxRelevant = true;
+    } else if (!event.checked && this.data.btn) {
+      this.data.contract.isTaxRelevant = false;
+    } else if (event.checked && !this.data.btn) {
+      this.isTaxRelevevantWhenCreated = true;
+    } else if (!event.checked && !this.data.btn) {
+      this.isTaxRelevevantWhenCreated = false;
     }
   }
 }

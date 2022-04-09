@@ -20,7 +20,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill" style="margin-left:15px">
             <mat-label>Turnus-Zeitraum</mat-label>
-            <mat-select formControlName="pperiodName">
+            <mat-select formControlName="periodName">
                 <mat-option *ngFor="let t of turnus" [value]="t.value">
                     {{t.viewValue}}
                 </mat-option>
@@ -58,7 +58,7 @@
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
 </form>
-<mat-checkbox class="example-margin">steuerrelevant</mat-checkbox>
+<mat-checkbox [checked]="data.contract.isTaxRelevant" (change)="onChangeCheckBox($event)"> steuerrelevant </mat-checkbox> 
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>
     <button mat-raised-button >Dokument</button>

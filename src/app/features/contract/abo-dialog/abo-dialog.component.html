@@ -64,7 +64,7 @@
         </mat-form-field>
     </div>
 </form>
-<mat-checkbox class="example-margin">steuerrelevant</mat-checkbox>
+<mat-checkbox [checked]="data.abo.isTaxRelevant" (change)="onChangeCheckBox($event)"> steuerrelevant </mat-checkbox> 
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>
     <button mat-raised-button>Dokument</button>​
