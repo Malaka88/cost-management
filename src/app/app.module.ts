@@ -20,6 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -119,6 +120,7 @@ import { SpPaymentDialogComponent } from './features/savings-plan/sp-payment-dia
     NgApexchartsModule,
     MatMenuModule,
     MatSelectModule,
+    MatCheckboxModule,
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
