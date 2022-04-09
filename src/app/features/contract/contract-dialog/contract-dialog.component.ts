@@ -35,12 +35,12 @@ export class ContractDialogComponent implements OnInit {
         description: [null],
         category: [null],
         provider: [null],
-        start_date: [null],
-        end_date: [null],
-        cancellation_date: [null],
-        contract_number: [null],
-        period_number: [null, Validators.required],
-        period_name: [null, Validators.required],
+        startDate: [null],
+        endDate: [null],
+        cancellationDate: [null],
+        stacontractNumber: [null],
+        periodNumber: [null, Validators.required],
+        pperiodName: [null, Validators.required],
       })
     } else {
       //if dialog was opened with "edit"
@@ -51,12 +51,12 @@ export class ContractDialogComponent implements OnInit {
         description: [this.data.contract.description],
         category: this.data.contract.category,
         provider: [this.data.contract.provider],
-        start_date: [this.data.contract.start_date],
-        end_date: [this.data.contract.end_date],
-        cancellation_date: [this.data.contract.cancellation_date],
-        contract_number: [this.data.contract.contract_number],
-        period_number: [this.data.contract.period_number, Validators.required],
-        period_name: [this.data.contract.period_name, Validators.required],
+        startDate: [this.data.contract.startDate],
+        endDate: [this.data.contract.endDate],
+        cancellationDate: [this.data.contract.cancellationDate],
+        stacontractNumber: [this.data.contract.stacontractNumber],
+        periodNumber: [this.data.contract.periodNumber, Validators.required],
+        pperiodName: [this.data.contract.pperiodName, Validators.required],
       })
     }
 
@@ -89,12 +89,12 @@ export class ContractDialogComponent implements OnInit {
         this.data.contract.cost = this.contractForm.get('cost')?.value;
         this.data.contract.description = this.contractForm.get('description')?.value;
         this.data.contract.provider = this.contractForm.get('provider')?.value;
-        this.data.contract.start_date = this.contractForm.get('start_date')?.value;
-        this.data.contract.end_date = this.contractForm.get('end_date')?.value;
-        this.data.contract.contract_number = this.contractForm.get('contract_number')?.value;
-        this.data.contract.cancellation_date = this.contractForm.get('cancellation_date')?.value;
-        this.data.contract.period_name = this.contractForm.get('period_name')?.value;
-        this.data.contract.period_number = this.contractForm.get('period_number')?.value;
+        this.data.contract.startDate = this.contractForm.get('startDate')?.value;
+        this.data.contract.endDate = this.contractForm.get('endDate')?.value;
+        this.data.contract.stacontractNumber = this.contractForm.get('stacontractNumber')?.value;
+        this.data.contract.cancellationDate = this.contractForm.get('cancellationDate')?.value;
+        this.data.contract.pperiodName = this.contractForm.get('pperiodName')?.value;
+        this.data.contract.periodNumber = this.contractForm.get('periodNumber')?.value;
         this.data.contract.dialogAction = 'update';
         this.dialogRef.close(this.data.contract);
       }

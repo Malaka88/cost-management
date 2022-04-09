@@ -32,13 +32,14 @@ export class ContractPageComponent implements OnInit {
       provider: 'Gothaer',
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      contract_number: '85237/0723',
-      start_date: new Date(2022,3,2),
-      end_date: new Date(2023,3,2),
-      cancellation_date: new Date(2022,11,11),
-      withdrawal_date: 19,
-      period_number: 1,
-      period_name: 'Monat',
+      contractNumber: '85237/0723',
+      startDate: new Date(2022,3,2),
+      endDate: new Date(2023,3,2),
+      cancellationDate: new Date(2022,11,11),
+      withdrawalDate: 19,
+      periodNumber: 1,
+      periodName: 'Monat',
+      isTaxRelevant: false,
     },
     {
       nameAndCost: '',
@@ -49,13 +50,14 @@ export class ContractPageComponent implements OnInit {
       provider: 'AXA',
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      contract_number: 'AGZ1456/4562',
-      start_date: new Date(2022,1,17),
-      end_date: new Date(2023,1,17),
-      cancellation_date: new Date(2022,1,9),
-      withdrawal_date: 19,
-      period_number: 1,
-      period_name: 'Jahr',
+      contractNumber: 'AGZ1456/4562',
+      startDate: new Date(2022,1,17),
+      endDate: new Date(2023,1,17),
+      cancellationDate: new Date(2022,1,9),
+      withdrawalDate: 19,
+      periodNumber: 1,
+      periodName: 'Jahr',
+      isTaxRelevant: false,
     },
     {
       nameAndCost: '',
@@ -66,13 +68,14 @@ export class ContractPageComponent implements OnInit {
       provider: 'AXA',
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      contract_number: '58564142458',
-      start_date: new Date(2022,4,1),
-      end_date: new Date(2023,4,1),
-      cancellation_date: new Date(2023,1,1),
-      withdrawal_date: 19,
-      period_number: 3,
-      period_name: 'Monat',
+      contractNumber: '58564142458',
+      startDate: new Date(2022,4,1),
+      endDate: new Date(2023,4,1),
+      cancellationDate: new Date(2023,1,1),
+      withdrawalDate: 19,
+      periodNumber: 3,
+      periodName: 'Monat',
+      isTaxRelevant: false,
     }
   ]
 
@@ -86,13 +89,14 @@ export class ContractPageComponent implements OnInit {
       description: 'Netflix & Chill',
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      contract_number: 'NX1337/4242',
-      start_date: new Date(2022,2,3),
-      end_date: new Date(2023,2,3),
-      cancellation_date: new Date(2022,11,11),
-      withdrawal_date: 19,
-      period_number: 3,
-      period_name: 'Monat',
+      contractNumber: 'NX1337/4242',
+      startDate: new Date(2022,2,3),
+      endDate: new Date(2023,2,3),
+      cancellationDate: new Date(2022,11,11),
+      withdrawalDate: 19,
+      periodNumber: 3,
+      periodName: 'Monat',
+      isTaxRelevant: false,
     },
     {
       nameAndCost: "",
@@ -102,13 +106,14 @@ export class ContractPageComponent implements OnInit {
       description: 'Musik hören',
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      contract_number: 'ZDHDKALFASD',
-      start_date: new Date(2022,4,3),
-      end_date: new Date(2023,4,33),
-      cancellation_date: new Date(2022,12,12),
-      withdrawal_date: 12,
-      period_number: 1,
-      period_name: 'Monat',
+      contractNumber: 'ZDHDKALFASD',
+      startDate: new Date(2022,4,3),
+      endDate: new Date(2023,4,33),
+      cancellationDate: new Date(2022,12,12),
+      withdrawalDate: 12,
+      periodNumber: 1,
+      periodName: 'Monat',
+      isTaxRelevant: false,
     },
     {
       nameAndCost: "",
@@ -118,13 +123,14 @@ export class ContractPageComponent implements OnInit {
       description: 'Fachzeitschrift für Software-Entiwckler',
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      contract_number: '1516843920',
-      start_date: new Date(2022, 1, 1),
-      end_date: new Date(2023, 1, 1),
-      cancellation_date: new Date(2022, 10, 9),
-      withdrawal_date: 3,
-      period_number: 1,
-      period_name: 'Monat',
+      contractNumber: '1516843920',
+      startDate: new Date(2022, 1, 1),
+      endDate: new Date(2023, 1, 1),
+      cancellationDate: new Date(2022, 10, 9),
+      withdrawalDate: 3,
+      periodNumber: 1,
+      periodName: 'Monat',
+      isTaxRelevant: false,
     }
   ]
 
@@ -136,13 +142,14 @@ export class ContractPageComponent implements OnInit {
     description: '',
     uuidValue: uuid.v4(),
     dialogAction: '',
-    contract_number: '',
-    start_date: new Date(),
-    end_date: new Date(),
-    cancellation_date: new Date(),
-    withdrawal_date: 0,
-    period_number: 0,
-    period_name: '',
+    contractNumber: '',
+    startDate: new Date(),
+    endDate: new Date(),
+    cancellationDate: new Date(),
+    withdrawalDate: 0,
+    periodNumber: 0,
+    periodName: '',
+    isTaxRelevant: false,
   }
 
   public emptyContract: Contract = {
@@ -154,13 +161,14 @@ export class ContractPageComponent implements OnInit {
     provider: '',
     uuidValue: uuid.v4(),
     dialogAction: '',
-    contract_number: '',
-    start_date: new Date(),
-    end_date: new Date(),
-    cancellation_date: new Date(),
-    withdrawal_date: 0,
-    period_number: 0,
-    period_name: '',
+    contractNumber: '',
+    startDate: new Date(),
+    endDate: new Date(),
+    cancellationDate: new Date(),
+    withdrawalDate: 0,
+    periodNumber: 0,
+    periodName: '',
+    isTaxRelevant: false,
   }
 
   openContractDialog(contract: Contract, delBtnIsVisible: Boolean) {
@@ -230,13 +238,13 @@ export class ContractPageComponent implements OnInit {
   }
 
   transformNameAndCost(contractOrAbo: any) {
-    if (contractOrAbo.period_number == 1) {
-      contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € pro ${contractOrAbo.period_name}`;
+    if (contractOrAbo.periodNumber == 1) {
+      contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € pro ${contractOrAbo.periodName}`;
     } else {
-      switch (contractOrAbo.period_name) {
-        case "Woche": contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € alle ${contractOrAbo.period_number} Wochen`; break;
-        case "Monat": contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € alle ${contractOrAbo.period_number} Monate`; break;
-        case "Jahr": contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € alle ${contractOrAbo.period_number} Jahre`; break;
+      switch (contractOrAbo.periodName) {
+        case "Woche": contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € alle ${contractOrAbo.periodNumber} Wochen`; break;
+        case "Monat": contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € alle ${contractOrAbo.periodNumber} Monate`; break;
+        case "Jahr": contractOrAbo.nameAndCost = `${contractOrAbo.name} mit ${contractOrAbo.cost} € alle ${contractOrAbo.periodNumber} Jahre`; break;
         default: null;
       }
     }

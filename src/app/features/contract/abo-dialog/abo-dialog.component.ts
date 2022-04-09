@@ -35,12 +35,12 @@ export class AboDialogComponent implements OnInit {
         cost: [null, Validators.required],
         description: [null],
         category: [null],
-        start_date: [null],
-        end_date: [null],
-        cancellation_date: [null],
-        contract_number: [null],
-        period_number: [null, Validators.required],
-        period_name: [null, Validators.required],
+        startDate: [null],
+        endDate: [null],
+        cancellationDate: [null],
+        contractNumber: [null],
+        periodNumber: [null, Validators.required],
+        periodName: [null, Validators.required],
       })
     } else {
       //if dialog was opened with "edit"
@@ -50,12 +50,12 @@ export class AboDialogComponent implements OnInit {
         cost: [this.data.abo.cost, Validators.required],
         description: [this.data.abo.description],
         category: [this.data.abo.category],
-        start_date: [this.data.abo.start_date],
-        end_date: [this.data.abo.end_date],
-        cancellation_date: [this.data.abo.cancellation_date],
-        contract_number: [this.data.abo.contract_number],
-        period_number: [this.data.abo.period_number, Validators.required],
-        period_name: [this.data.abo.period_name, Validators.required],
+        startDate: [this.data.abo.startDate],
+        endDate: [this.data.abo.endDate],
+        cancellationDate: [this.data.abo.cancellationDate],
+        contractNumber: [this.data.abo.contractNumber],
+        periodNumber: [this.data.abo.periodNumber, Validators.required],
+        periodName: [this.data.abo.periodName, Validators.required],
       })
     }
 
@@ -99,13 +99,13 @@ export class AboDialogComponent implements OnInit {
         this.data.abo.name = this.aboForm.get('name')?.value;
         this.data.abo.cost = this.aboForm.get('cost')?.value;
         this.data.abo.description = this.aboForm.get('description')?.value;
-        this.data.abo.contract_number = this.aboForm.get('contract_number')?.value;
-        this.data.abo.start_date = this.aboForm.get('start_date')?.value;
-        this.data.abo.end_date = this.aboForm.get('end_date')?.value;
-        this.data.abo.cancellation_date = this.aboForm.get('cancellation_date')?.value;
+        this.data.abo.contractNumber = this.aboForm.get('contractNumber')?.value;
+        this.data.abo.startDate = this.aboForm.get('startDate')?.value;
+        this.data.abo.endDate = this.aboForm.get('endDate')?.value;
+        this.data.abo.cancellationDate = this.aboForm.get('cancellationDate')?.value;
         this.data.abo.category = this.aboForm.get('category')?.value;
-        this.data.abo.period_name = this.aboForm.get('period_name')?.value;
-        this.data.abo.period_number = this.aboForm.get('period_number')?.value;
+        this.data.abo.periodName = this.aboForm.get('periodName')?.value;
+        this.data.abo.periodNumber = this.aboForm.get('periodNumber')?.value;
         this.data.abo.dialogAction = 'update';
         this.dialogRef.close(this.data.abo);
       }

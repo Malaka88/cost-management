@@ -16,11 +16,11 @@
     <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
         <mat-form-field appearance="fill">
             <mat-label> Turnus-Intervall </mat-label>
-            <input matInput formControlName="period_number" type="number">
+            <input matInput formControlName="periodNumber" type="number">
         </mat-form-field>
         <mat-form-field appearance="fill" style="margin-left:15px">
             <mat-label>Turnus-Zeitraum</mat-label>
-            <mat-select formControlName="period_name">
+            <mat-select formControlName="pperiodName">
                 <mat-option *ngFor="let t of turnus" [value]="t.value">
                     {{t.viewValue}}
                 </mat-option>
@@ -33,19 +33,19 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Vertragsnummer</mat-label>
-        <input matInput formControlName="contract_number" type="text">
+        <input matInput formControlName="stacontractNumber" type="text">
     </mat-form-field>
     <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
         <div class="Turnus" fxLayout="row" fxLayoutAlign="space-between start">
             <mat-form-field appearance="fill">
                 <mat-label>'Startdatum wählen'</mat-label>
-                <input matInput [matDatepicker]="picker1" formControlName="start_date">
+                <input matInput [matDatepicker]="picker1" formControlName="startDate">
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
               </mat-form-field>
               <mat-form-field appearance="fill" style="margin-left:15px">
                 <mat-label>Enddatum wählen</mat-label>
-                <input matInput [matDatepicker]="picker2" formControlName="end_date">
+                <input matInput [matDatepicker]="picker2" formControlName="endDate">
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
               </mat-form-field>
@@ -53,7 +53,7 @@
     </div>
     <mat-form-field appearance="fill">
         <mat-label>Kündigungserinnerung wählen</mat-label>
-        <input matInput [matDatepicker]="picker3" formControlName="cancellation_date">
+        <input matInput [matDatepicker]="picker3" formControlName="cancellationDate">
         <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
         <mat-datepicker #picker3></mat-datepicker>
       </mat-form-field>
