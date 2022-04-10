@@ -3,7 +3,6 @@ import { AccountDialogComponent } from '../account-dialog/account-dialog.compone
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import * as uuid from 'uuid';
 import { Account } from 'src/app/models/account-models';
 
 @Component({
@@ -13,11 +12,6 @@ import { Account } from 'src/app/models/account-models';
 })
 export class NewAccountDialogComponent implements OnInit {
 
-
-  // account : Account;
-  // accounts : Account[];
-  // btn : Boolean;
-
   constructor(
     private dialog: MatDialog,
     public dialogRef: MatDialogRef<AccountDialogComponent>,
@@ -26,9 +20,6 @@ export class NewAccountDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.account = this.data.account;
-    // this.accounts = this.data.accounts;
-    // this.btn = this.data.btn;
   }
 
   closeDialog() {

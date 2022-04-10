@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-export class AccountComponent{
+export class AccountComponent {
 
   constructor(private dialog: MatDialog) {
   }
@@ -58,15 +58,15 @@ export class AccountComponent{
     },
   ]
 
-  emptyAccount : Account = {
-      name: '',
-      amount: 0,
-      imgPath: '',
-      route: '',
-      bic: '',
-      iban: '',
-      dialogAction: 'none',
-      uuidValue: uuid.v4()
+  emptyAccount: Account = {
+    name: '',
+    amount: 0,
+    imgPath: '',
+    route: '',
+    bic: '',
+    iban: '',
+    dialogAction: 'none',
+    uuidValue: uuid.v4()
   }
 
   openEditAccountDialog(account: Account, delBtnIsVisible: Boolean) {
@@ -76,9 +76,9 @@ export class AccountComponent{
     dialogRef.afterClosed().subscribe(x => this.dialogAction(x));
   }
 
-  openNewAccountDialog(account: Account,delBtnIsVisible: Boolean) {
+  openNewAccountDialog(account: Account, delBtnIsVisible: Boolean) {
     const dialogRef = this.dialog.open(NewAccountDialogComponent, {
-      data: { account: account, btn: delBtnIsVisible},
+      data: { account: account, btn: delBtnIsVisible },
       height: '180px',
       width: '350px'
     });
@@ -101,17 +101,17 @@ export class AccountComponent{
     }
   }
 
-  addBankAndAssignBankImage(returnedAccount : Account){
-    if(returnedAccount.name.includes("DKB")){
+  addBankAndAssignBankImage(returnedAccount: Account) {
+    if (returnedAccount.name.includes("DKB")) {
       returnedAccount.imgPath = '../../../assets/img/dkb-logo.jpg'
       returnedAccount.route = 'dkb';
-    }else if(returnedAccount.name.includes("Volksbank")){
+    } else if (returnedAccount.name.includes("Volksbank")) {
       returnedAccount.imgPath = '../../../assets/img/vk-logo.jpg'
       returnedAccount.route = 'vb';
-    } else if(returnedAccount.name.includes("Sparkasse")){
+    } else if (returnedAccount.name.includes("Sparkasse")) {
       returnedAccount.imgPath = '../../../assets/img/sparkasse-logo.png'
       returnedAccount.route = 'sp';
-    } else if(returnedAccount.name.includes("ING")){
+    } else if (returnedAccount.name.includes("ING")) {
       returnedAccount.imgPath = '../../../assets/img/ing-logo.jpeg'
       returnedAccount.route = 'ing';
     } else {
@@ -119,7 +119,8 @@ export class AccountComponent{
       returnedAccount.route = 'gen';
     }
 
-    this.accounts.push(returnedAccount);
+    if (returnedAccount.dialogAction == 'new')
+      this.accounts.push(returnedAccount);
   }
 
 }

@@ -60,6 +60,10 @@ import { SpPaymentDialogComponent } from './features/savings-plan/sp-payment-dia
 import { AccountDialogComponent } from './features/accounts/account-dialog/account-dialog.component';
 import { NewAccountDialogComponent } from './features/accounts/new-account-dialog/new-account-dialog.component';
 import { TransactionDialogComponent } from './features/accounts/transaction-dialog/transaction-dialog.component';
+import { CreditcardDialogComponent } from './features/credit-card/creditcard-dialog/creditcard-dialog.component';
+import { CreditcardBookingComponent } from './features/credit-card/creditcard-booking/creditcard-booking.component';
+import { NewCreditcardDialogComponent } from './features/credit-card/new-creditcard-dialog/new-creditcard-dialog.component';
+import { CreditcardTransactionDialogComponent } from './features/credit-card/creditcard-transaction-dialog/creditcard-transaction-dialog.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +98,10 @@ import { TransactionDialogComponent } from './features/accounts/transaction-dial
     AccountDialogComponent,
     NewAccountDialogComponent,
     TransactionDialogComponent,
+    CreditcardDialogComponent,
+    CreditcardBookingComponent,
+    NewCreditcardDialogComponent,
+    CreditcardTransactionDialogComponent,
   ],
   imports: [
     CalendarModule.forRoot({

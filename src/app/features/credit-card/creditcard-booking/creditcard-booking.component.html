@@ -1,0 +1,51 @@
+<h1>Umsätze</h1>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="openTransactionDialog(emptyBookingData,false)">Transaktion hinzufügen</button>
+</div>
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Datum </th>
+        <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd.MM.yy'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount" s>
+        <th mat-header-cell *matHeaderCellDef> Betrag </th>
+        <td mat-cell *matCellDef="let element"> {{element.amount}} €</td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <!-- <div class="example-element-diagram">
+                    <div class="example-element-position"> {{element.date | date: 'dd.MM.yy'}} </div>
+                    <div class="example-element-symbol"> {{element.name}} </div>
+                    <div class="example-element-name"> {{element.amount}} </div>
+                </div>
+                <div class="example-element-description">
+                    {{element.description}}
+                    <span class="example-element-description-attribution"> -- Wikipedia </span>
+                </div> -->
+            <div>
+                <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}}</p>
+                <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
+                <mat-card-actions fxLayoutAlign="end right">
+                    <button mat-button (click)="openTransactionDialog(element,true)">Bearbeiten</button>
+                </mat-card-actions>
+            </div>
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

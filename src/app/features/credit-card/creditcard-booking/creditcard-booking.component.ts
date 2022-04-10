@@ -3,16 +3,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { BookingModel } from 'src/app/models/booking-model';
 import * as uuid from 'uuid';
 import { MatDialog } from '@angular/material/dialog';
-import { TransactionDialogComponent } from '../transaction-dialog/transaction-dialog.component';
+import { CreditcardTransactionDialogComponent } from '../creditcard-transaction-dialog/creditcard-transaction-dialog.component';
 import { MatTableDataSource } from '@angular/material/table';
 
-/**
- * @title Table with expandable rows
- */
+
+
 @Component({
-  selector: 'app-account-booking',
-  templateUrl: './account-booking.component.html',
-  styleUrls: ['./account-booking.component.css'],
+  selector: 'app-creditcard-booking',
+  templateUrl: './creditcard-booking.component.html',
+  styleUrls: ['./creditcard-booking.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
@@ -21,9 +20,9 @@ import { MatTableDataSource } from '@angular/material/table';
     ]),
   ],
 })
-export class AccountBookingComponent implements OnInit {
+export class CreditcardBookingComponent implements OnInit {
 
-  constructor(private dialog: MatDialog,
+ constructor(private dialog: MatDialog,
     ) { }
 
     ngOnInit(): void {
@@ -50,25 +49,25 @@ export class AccountBookingComponent implements OnInit {
   public bookingData: BookingModel[] = [
     {
       date: new Date(2022, 1, 17),
-      name: 'Edeka',
-      amount: -12.49,
-      category: 'Abonnement',
+      name: 'Lufthansa',
+      amount: -899.53,
+      category: 'Flug',
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE72560301010211254724',
+      transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
     },
     {
       date: new Date(2022, 1, 16),
-      name: 'Paypal',
-      amount: -4.99,
-      category: 'Abonnement',
+      name: 'Aral Tankstelle Oststadt',
+      amount: -65.57,
+      category: 'Tanken',
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE52660301010210254789',
+      transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
     },
@@ -80,99 +79,51 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE42663500366011457824781',
+      transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
     },
     {
       date: new Date(2022, 1, 10),
-      name: 'Edeka',
-      amount: -168,
-      category: 'Abonnement',
+      name: 'H&M Karlsruhe',
+      amount: -89.99,
+      category: 'Kleidung',
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE61463500366011457824781',
+      transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
     },
     {
-      date: new Date(2022, 1, 3),
-      name: 'Netflix',
-      amount: -4.99,
-      category: 'Abonnement',
+      date: new Date(2022, 1, 10),
+      name: 'Jack and Jones - Ettlinger Tor',
+      amount: -69.99,
+      category: 'Kleidung',
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE72560301010211254724',
-      periodName: 'Monat',
+      transactionAccount: '',
+      periodName: 'einmalig',
       periodNumber: 1,
     },
     {
-      date: new Date(2022, 1, 2),
-      name: 'Berufsunfähigkeitsversicherung',
-      amount: -60,
-      category: 'Versicherung',
+      date: new Date(2022, 1, 10),
+      name: 'Tom Tailor - Ettlinger Tor',
+      amount: -24.99,
+      category: 'Kleidung',
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE42663500366011457824781',
-      periodName: 'Monat',
+      transactionAccount: '',
+      periodName: 'einmalig',
       periodNumber: 1,
-    },
-    {
-      date: new Date(2022, 1, 2),
-      name: 'Spotify',
-      amount: -4.99,
-      category: 'Abonnement',
-      isTaxRelevant: false,
-      uuidValue: uuid.v4(),
-      dialogAction: 'none',
-      transactionAccount: 'DE42663500366011457824781',
-      periodName: 'Monat',
-      periodNumber: 1,
-    },
-    {
-      date: new Date(2022, 1, 2),
-      name: 'Strom',
-      amount: -70,
-      category: 'Abonnement',
-      isTaxRelevant: false,
-      uuidValue: uuid.v4(),
-      dialogAction: 'none',
-      transactionAccount: 'DE61463500366011457824781',
-      periodName: 'Monat',
-      periodNumber: 1,
-    },
-    {
-      date: new Date(2022, 1, 2),
-      name: 'Miete',
-      amount: -600,
-      category: 'Miete',
-      isTaxRelevant: false,
-      uuidValue: uuid.v4(),
-      dialogAction: 'none',
-      transactionAccount: 'DE82463500366011457824781',
-      periodName: 'Monat',
-      periodNumber: 1,
-    },
-    {
-      date: new Date(2022, 1, 1),
-      name: 'Gehalt DiMaSi GmbH',
-      amount: 2500,
-      category: 'Gehalt',
-      isTaxRelevant: false,
-      uuidValue: uuid.v4(),
-      dialogAction: 'none',
-      transactionAccount: 'DE72560301010211254724',
-      periodName: 'Monat',
-      periodNumber: 1,
-    },
+    }
   ]
 
   openTransactionDialog(bookingData: BookingModel, delBtnIsVisible: Boolean) {
     console.log(this.bookingData);
-    const dialogRef = this.dialog.open(TransactionDialogComponent, {
+    const dialogRef = this.dialog.open(CreditcardTransactionDialogComponent, {
       data: { bookingData: bookingData, btn: delBtnIsVisible }
     });
     dialogRef.afterClosed().subscribe(x => this.dialogTransactionAction(x));

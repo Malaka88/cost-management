@@ -32,8 +32,6 @@ export class AccountDialogComponent implements OnInit {
         amount: [null,Validators.required],
         bic: [null],
         iban: [null],
-        // imgPath: [null],
-        // route: [null],
       })
     } else {
       //if dialog was opened with "edit"

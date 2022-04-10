@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountBookingComponent } from './features/accounts/account-booking/account-booking.component';
+import { CreditcardBookingComponent } from './features/credit-card/creditcard-booking/creditcard-booking.component';
 import { AccountComponent } from './features/accounts/account/account.component';
 import { AssetsOverviewPageComponent } from './features/assets/assets-overview-page/assets-overview-page.component';
 import { FinancialFreedomPageComponent } from './features/calculator/financial-freedom-page/financial-freedom-page.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'contract', component: ContractPageComponent, canActivate: [AuthGuardService] },
   { path: 'accounts', component: AccountComponent, canActivate: [AuthGuardService] },
   { path: 'accounts/overview/:sc', component: AccountBookingComponent, canActivate: [AuthGuardService] },
+  { path: 'credit-card/overview/:sc', component: CreditcardBookingComponent, canActivate: [AuthGuardService] },
   { path: 'credit-card', component: CreditCardPageComponent, canActivate: [AuthGuardService] },
   { path: 'calendar', component: CalendarPageComponent, canActivate: [AuthGuardService] },
   { path: 'savings-plan', component: SavingsPlanPageComponent, canActivate: [AuthGuardService] },

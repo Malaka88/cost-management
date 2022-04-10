@@ -1,1 +1,22 @@
-<p>credit-card-page works!</p>
+<h1>Kreditkartenübersicht</h1>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="openNewAccountDialog(emptyCreditCard, false)">Kreditkarte hinzufügen</button>
+</div>
+<div *ngFor="let creditCard of creditCards">
+    <div class="custom-card" fxLayout="row" fxLayoutAlign="space-between center"
+        routerLink="overview/{{creditCard.route}}">
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <img src="{{creditCard.imgPath}}" alt="vk">
+            <div style="width:20px;"></div>
+            <div>
+                <h1>{{creditCard.name}}</h1>
+                <p *ngIf="creditCard.creditNardNumber != null && creditCard.creditNardNumber != ''"> Nummer: {{creditCard.creditNardNumber}}</p>
+                <p *ngIf="creditCard.expirationDay != null"> Ablaufdatum: {{creditCard.expirationDay | date: 'dd.MM.yy' }} </p>
+            </div>
+        </div>
+        <h1>{{creditCard.amount}} €</h1>
+    </div>
+    <mat-card-actions fxLayoutAlign="end end">
+        <button mat-button (click)="openEditAccountDialog(creditCard,true)">Bearbeiten</button>
+    </mat-card-actions>
+</div>
