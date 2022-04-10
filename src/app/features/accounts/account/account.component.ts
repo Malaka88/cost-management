@@ -93,14 +93,31 @@ export class AccountComponent{
       const index = this.accounts.findIndex(x => x.uuidValue === returnedAccount.uuidValue);
       this.accounts.splice(index, 1);
     } else if (returnedAccount.dialogAction == 'new') {
-      //adds new entry
-      this.accounts.push(returnedAccount);
+      // this.accounts.push(returnedAccount);
+      this.addBankAndAssignBankImage(returnedAccount);
     } else if (returnedAccount.dialogAction == 'update') {
       //updates changes
       null;
     }
   }
 
+  addBankAndAssignBankImage(returnedAccount : Account){
+    if(returnedAccount.name.includes("DKB")){
+      returnedAccount.imgPath = '../../../assets/img/dkb-logo.jpg'
+      returnedAccount.route = 'dkb';
+    }else if(returnedAccount.name.includes("Volksbank")){
+      returnedAccount.imgPath = '../../../assets/img/vk-logo.jpg'
+      returnedAccount.route = 'vb';
+    } else if(returnedAccount.name.includes("Sparkasse")){
+      returnedAccount.imgPath = '../../../assets/img/sparkasse-logo.png'
+      returnedAccount.route = 'sp';
+    } else {
+      returnedAccount.imgPath = '../../../assets/img/bank.jpg'
+      returnedAccount.route = 'gen';
+    }
+
+    this.accounts.push(returnedAccount);
+  }
 
 }
 

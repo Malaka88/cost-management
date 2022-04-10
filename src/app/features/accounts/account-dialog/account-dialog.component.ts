@@ -59,8 +59,6 @@ export class AccountDialogComponent implements OnInit {
         let account = this.accountForm.value as Account;
         account.uuidValue = uuid.v4();
         account.dialogAction = 'new';
-        account.imgPath =  '../../../assets/img/bank.jpg',
-        account.route = 'bank-gen',
         this.dialogRef.close(account);
       } else {
 
