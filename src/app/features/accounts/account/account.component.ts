@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Account } from 'src/app/models/account-models';
+import * as uuid from 'uuid';
+import { AccountDialogComponent } from '../account-dialog/account-dialog.component';
+import { NewAccountDialogComponent } from '../new-account-dialog/new-account-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-account',
@@ -7,37 +12,95 @@ import { Component } from '@angular/core';
 })
 export class AccountComponent{
 
-  cards: CustomCard[] = [
+  constructor(private dialog: MatDialog) {
+  }
+
+  accounts: Account[] = [
     {
-      title: 'Volksbank Karlsruhe',
+      name: 'Volksbank Karlsruhe',
       amount: 2323.44,
       imgPath: '../../../assets/img/vk-logo.jpg',
-      route: 'vb-ka'
+      route: 'vb-ka',
+      bic: 'GENODE61KA1',
+      iban: 'DE52660501010010254789',
+      dialogAction: 'none',
+      uuidValue: uuid.v4(),
     },
     {
-      title: 'Sparkasse Karlsruhe',
+      name: 'Sparkasse Karlsruhe',
       amount: 525.87,
       imgPath: '../../../assets/img/sparkasse-logo.png',
-      route: 'sk-ka'
+      route: 'sk-ka',
+      bic: 'GENODE61KA1',
+      iban: 'DE61661900000016827425',
+      dialogAction: 'none',
+      uuidValue: uuid.v4(),
     },
     {
-      title: 'ING Einzelkonto',
+      name: 'ING Einzelkonto',
       amount: 2912.23,
       imgPath: '../../../assets/img/ing-logo.jpeg',
-      route: 'ing-ek'
+      route: 'ing-ek',
+      bic: 'INGDDEFFXXX',
+      iban: 'DE42500105170014587635',
+      dialogAction: 'none',
+      uuidValue: uuid.v4(),
     },
     {
-      title: 'ING Gemeinschaftskonto',
+      name: 'ING Gemeinschaftskonto',
       amount: 5234.23,
       imgPath: '../../../assets/img/ing-logo.jpeg',
-      route: 'ing-gk'
+      route: 'ing-gk',
+      bic: 'INGDDEFFXXX',
+      iban: 'DE47500105170012570623',
+      dialogAction: 'none',
+      uuidValue: uuid.v4(),
     },
   ]
+
+  emptyAccount : Account = {
+      name: '',
+      amount: 0,
+      imgPath: '',
+      route: '',
+      bic: '',
+      iban: '',
+      dialogAction: 'none',
+      uuidValue: uuid.v4()
+  }
+
+  openEditAccountDialog(account: Account, delBtnIsVisible: Boolean) {
+    const dialogRef = this.dialog.open(AccountDialogComponent, {
+      data: { account: account, btn: delBtnIsVisible }
+    });
+    dialogRef.afterClosed().subscribe(x => this.dialogAction(x));
+  }
+
+  openNewAccountDialog(account: Account,delBtnIsVisible: Boolean) {
+    const dialogRef = this.dialog.open(NewAccountDialogComponent, {
+      data: { account: account, btn: delBtnIsVisible},
+      height: '180px',
+      width: '350px'
+    });
+    dialogRef.afterClosed().subscribe(x => this.dialogAction(x));
+  }
+
+
+
+  dialogAction(returnedAccount: Account) {
+    if (returnedAccount.dialogAction == 'delete') {
+      //deletes entry
+      const index = this.accounts.findIndex(x => x.uuidValue === returnedAccount.uuidValue);
+      this.accounts.splice(index, 1);
+    } else if (returnedAccount.dialogAction == 'new') {
+      //adds new entry
+      this.accounts.push(returnedAccount);
+    } else if (returnedAccount.dialogAction == 'update') {
+      //updates changes
+      null;
+    }
+  }
+
+
 }
 
-export interface CustomCard {
-  title: string,
-  imgPath: string,
-  amount: number,
-  route: string
-}

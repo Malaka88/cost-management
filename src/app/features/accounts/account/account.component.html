@@ -1,11 +1,22 @@
 <h1>Kontenübersicht</h1>
-<div *ngFor="let card of cards">
-    <div class="custom-card" fxLayout="row" fxLayoutAlign="space-between center" routerLink="overview/{{card.route}}">
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="openNewAccountDialog(emptyAccount, false)">Konto hinzufügen</button>
+</div>
+<div *ngFor="let account of accounts">
+    <div class="custom-card" fxLayout="row" fxLayoutAlign="space-between center"
+        routerLink="overview/{{account.route}}">
         <div fxLayout="row" fxLayoutAlign="start center">
-            <img src="{{card.imgPath}}" alt="vk">
+            <img src="{{account.imgPath}}" alt="vk">
             <div style="width:20px;"></div>
-            <h1>{{card.title}}</h1>
+            <div>
+                <h1>{{account.name}}</h1>
+                <p *ngIf="account.iban != null && account.iban != ''"> IBAN: {{account.iban}}</p>
+                <p *ngIf="account.bic != null && account.bic != ''"> BIC: {{account.bic}} </p>
+            </div>
         </div>
-        <h1>{{card.amount}} €</h1>
+        <h1>{{account.amount}} €</h1>
     </div>
+    <mat-card-actions fxLayoutAlign="end end">
+        <button mat-button (click)="openEditAccountDialog(account,true)">Bearbeiten</button>
+    </mat-card-actions>
 </div>
