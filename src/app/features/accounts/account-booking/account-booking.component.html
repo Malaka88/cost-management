@@ -1,4 +1,7 @@
 <h1>Umsätze</h1>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="openTransactionDialog(emptyBookingData,false)">Transaktion hinzufügen</button>
+</div>
 <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
     <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef> Datum </th>
@@ -28,7 +31,13 @@
                     {{element.description}}
                     <span class="example-element-description-attribution"> -- Wikipedia </span>
                 </div> -->
-                Hier können noch mehr Informationen angezeigt werden.
+            <div>
+                <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}}</p>
+                <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
+                <mat-card-actions fxLayoutAlign="end right">
+                    <button mat-button (click)="openTransactionDialog(element,true)">Bearbeiten</button>
+                </mat-card-actions>
+            </div>
             </div>
         </td>
     </ng-container>

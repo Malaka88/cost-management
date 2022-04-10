@@ -29,7 +29,7 @@ export class AccountDialogComponent implements OnInit {
       //if dialog was opened with "add new"
       this.accountForm = this.fb.group({
         name: [null, Validators.required],
-        amount: [null],
+        amount: [null,Validators.required],
         bic: [null],
         iban: [null],
         // imgPath: [null],
@@ -39,7 +39,7 @@ export class AccountDialogComponent implements OnInit {
       //if dialog was opened with "edit"
       this.accountForm = this.fb.group({
         name: [this.data.account.name, Validators.required],
-        amount: [this.data.account.amount],
+        amount: [this.data.account.amount,Validators.required],
         bic: [this.data.account.bic],
         iban: [this.data.account.iban],
         imgPath: [this.data.account.imgPath],

@@ -59,6 +59,7 @@ import { SpAssetsDialogComponent } from './features/savings-plan/sp-assets-dialo
 import { SpPaymentDialogComponent } from './features/savings-plan/sp-payment-dialog/sp-payment-dialog.component';
 import { AccountDialogComponent } from './features/accounts/account-dialog/account-dialog.component';
 import { NewAccountDialogComponent } from './features/accounts/new-account-dialog/new-account-dialog.component';
+import { TransactionDialogComponent } from './features/accounts/transaction-dialog/transaction-dialog.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { NewAccountDialogComponent } from './features/accounts/new-account-dialo
     SpPaymentDialogComponent,
     AccountDialogComponent,
     NewAccountDialogComponent,
+    TransactionDialogComponent,
   ],
   imports: [
     CalendarModule.forRoot({

@@ -96,7 +96,7 @@ export class AccountComponent{
       // this.accounts.push(returnedAccount);
       this.addBankAndAssignBankImage(returnedAccount);
     } else if (returnedAccount.dialogAction == 'update') {
-      //updates changes
+      this.addBankAndAssignBankImage(returnedAccount);
       null;
     }
   }
@@ -111,6 +111,9 @@ export class AccountComponent{
     } else if(returnedAccount.name.includes("Sparkasse")){
       returnedAccount.imgPath = '../../../assets/img/sparkasse-logo.png'
       returnedAccount.route = 'sp';
+    } else if(returnedAccount.name.includes("ING")){
+      returnedAccount.imgPath = '../../../assets/img/ing-logo.jpeg'
+      returnedAccount.route = 'ing';
     } else {
       returnedAccount.imgPath = '../../../assets/img/bank.jpg'
       returnedAccount.route = 'gen';

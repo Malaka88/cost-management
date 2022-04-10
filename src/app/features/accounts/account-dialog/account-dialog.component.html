@@ -23,5 +23,7 @@
     <button mat-raised-button>Dokument</button>​
     <button mat-raised-button [disabled]="data.account.name.length==0" (click)="delete()"
         *ngIf="data.btn">Löschen</button>
+    <button mat-raised-button [disabled]="data.account.name.length==0" (click)="delete()"
+        *ngIf="data.btn">Verknüpfen</button>
     <button mat-raised-button [disabled]="!accountForm.valid" (click)="submit()">Speichern</button>
 </div>
