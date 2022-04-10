@@ -57,6 +57,8 @@ import { SavingsRatePageComponent } from './features/calculator/savings-rate-pag
 import { SavingsRateDialogComponent } from './features/calculator/savings-rate-dialog/savings-rate-dialog.component';
 import { SpAssetsDialogComponent } from './features/savings-plan/sp-assets-dialog/sp-assets-dialog.component';
 import { SpPaymentDialogComponent } from './features/savings-plan/sp-payment-dialog/sp-payment-dialog.component';
+import { AccountDialogComponent } from './features/accounts/account-dialog/account-dialog.component';
+import { NewAccountDialogComponent } from './features/accounts/new-account-dialog/new-account-dialog.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import { SpPaymentDialogComponent } from './features/savings-plan/sp-payment-dia
     SavingsRateDialogComponent,
     SpAssetsDialogComponent,
     SpPaymentDialogComponent,
+    AccountDialogComponent,
+    NewAccountDialogComponent,
   ],
   imports: [
     CalendarModule.forRoot({
