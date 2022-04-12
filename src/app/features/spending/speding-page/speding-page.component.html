@@ -44,6 +44,7 @@
                             <span class="example-element-description-attribution"> -- Wikipedia </span>
                         </div> -->
                     <div>
+                        <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}} </p>
                         <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
                         <p *ngIf="element.isFixCost"> Fixkosten: Ja </p>
                         <p *ngIf="!element.isFixCost"> Fixkosten: Nein </p>
@@ -114,6 +115,7 @@
                                 <span class="example-element-description-attribution"> -- Wikipedia </span>
                             </div> -->
                         <div>
+                            <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}} </p>
                             <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
                             <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
                             <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>

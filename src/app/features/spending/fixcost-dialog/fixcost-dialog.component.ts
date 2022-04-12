@@ -14,6 +14,7 @@ export class FixcostDialogComponent implements OnInit {
 
   public transactionForm: FormGroup;
   public turnus: DropDown[];
+  public myAccounts: DropDown[];
   public categories: DropDown[];
   public isTaxRelevevantWhenCreated: Boolean;
   public isTaxRelevevantWhenEdited: Boolean;
@@ -41,6 +42,7 @@ export class FixcostDialogComponent implements OnInit {
         isFixCost: [false],
         category: [null],
         transactionAccount: [null],
+        myAccount: [null],
       })
     } else {
       //if dialog was opened with "edit"
@@ -55,6 +57,7 @@ export class FixcostDialogComponent implements OnInit {
         isFixCost: [this.data.bookingData.isFixCost],
         category: [this.data.bookingData.category],
         transactionAccount: [this.data.bookingData.transactionAccount],
+        myAccount: [this.data.bookingData.myAccount],
       })
       this.isTaxRelevevantWhenEdited = this.data.bookingData.isTaxRelevant;
     }
@@ -65,6 +68,14 @@ export class FixcostDialogComponent implements OnInit {
       { value: 'Woche', viewValue: 'Woche' },
       { value: 'Monat', viewValue: 'Monat' },
       { value: 'Jahr', viewValue: 'Jahr' },
+    ];
+
+     //DropDown options for Myaccount
+     this.myAccounts = [
+      { value: 'DE11522103600253841898', viewValue: 'DE11522103600253841898' },
+      { value: 'DE92603004700125821366', viewValue: 'DE92603004700125821366' },
+      { value: 'DE37455120360102113574', viewValue: 'DE37455120360102113574' },
+      { value: 'Konto hinzufügen', viewValue: 'Konto hinzufügen' },
     ];
 
     //DropDown options for category
@@ -105,6 +116,7 @@ export class FixcostDialogComponent implements OnInit {
         this.data.bookingData.name = this.transactionForm.get('name')?.value;
         this.data.bookingData.amount = this.transactionForm.get('amount')?.value;
         this.data.bookingData.transactionAccount = this.transactionForm.get('transactionAccount')?.value;
+        this.data.bookingData.myAccount = this.transactionForm.get('myAccount')?.value;
         this.data.bookingData.date = this.transactionForm.get('date')?.value;
         this.data.bookingData.category = this.transactionForm.get('category')?.value;
         this.data.bookingData.periodName = this.transactionForm.get('periodName')?.value;

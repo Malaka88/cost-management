@@ -11,4 +11,5 @@ export interface BookingModel {
     periodName: string,
     isFixCost: Boolean,
     turnus: string,
+    myAccount: string;
 }

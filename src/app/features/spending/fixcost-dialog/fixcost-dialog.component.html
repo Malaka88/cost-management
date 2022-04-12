@@ -24,6 +24,14 @@
         </mat-form-field>
     </div>
     <mat-form-field appearance="fill">
+        <mat-label>Mein Konto</mat-label>
+        <mat-select formControlName="myAccount">
+            <mat-option *ngFor="let m of myAccounts" [value]="m.value">
+                {{m.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field> 
+    <mat-form-field appearance="fill">
         <mat-label>Transaktionskonto</mat-label>
         <input matInput formControlName="transactionAccount" type="text">
     </mat-form-field>
