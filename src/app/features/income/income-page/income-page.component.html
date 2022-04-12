@@ -1,28 +1,141 @@
-<button mat-raised-button (click)="openDialog()">
-    Einkommen hinzufügen
-</button>
-<table mat-table [dataSource]="dataSource">
-    <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Historie">
+        <div mat-dialog-actions>
+            <button mat-raised-button (click)="openIncomeDialog(emptyBookingData,false)">Einnahme
+                hinzufügen</button>
+        </div>
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+            <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="incomeDate" style="width:20%">
-        <th mat-header-cell *matHeaderCellDef> Datum </th>
-        <td mat-cell *matCellDef="let element"> {{element.incomeDate | date: 'dd.MM.yy'}} </td>
-    </ng-container>
+            <!-- Position Column -->
+            <ng-container matColumnDef="date" style="width:20%">
+                <th mat-header-cell *matHeaderCellDef> Datum </th>
+                <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd.MM.yy'}} </td>
+            </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="incomeMoney" style="width:20%">
-        <th mat-header-cell *matHeaderCellDef> Einkommen </th>
-        <td mat-cell *matCellDef="let element"> {{element.incomeMoney}} €</td>
-    </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="amount" style="width:20%">
+                <th mat-header-cell *matHeaderCellDef> Betrag </th>
+                <td mat-cell *matCellDef="let element"> {{element.amount}} €</td>
+            </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="origin" style="width:60%">
-        <th mat-header-cell *matHeaderCellDef> Herkunft </th>
-        <td mat-cell *matCellDef="let element"> {{element.origin}} </td>
-    </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="name" style="width:60%">
+                <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+            <ng-container matColumnDef="account" style="width:60%">
+                <th mat-header-cell *matHeaderCellDef> Konto </th>
+                <td mat-cell *matCellDef="let element"> {{element.transactionAccount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                    <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <!-- <div class="example-element-diagram">
+                            <div class="example-element-position"> {{element.date | date: 'dd.MM.yy'}} </div>
+                            <div class="example-element-symbol"> {{element.name}} </div>
+                            <div class="example-element-name"> {{element.amount}} </div>
+                        </div>
+                        <div class="example-element-description">
+                            {{element.description}}
+                            <span class="example-element-description-attribution"> -- Wikipedia </span>
+                        </div> -->
+                    <div>
+                        <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}} </p>
+                        <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
+                        <p *ngIf="element.isFixCost"> Fixkosten: Ja </p>
+                        <p *ngIf="!element.isFixCost"> Fixkosten: Nein </p>
+                        <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
+                        <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
+                        <mat-card-actions fxLayoutAlign="end right">
+                            <button mat-button (click)="openIncomeDialog(element,true)">Bearbeiten</button>
+                        </mat-card-actions>
+                    </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+        </table>
+    </mat-tab>
+    <mat-tab label="Fixe Einnahmen">
+        <div>
+            <div mat-dialog-actions>
+                <button mat-raised-button (click)="openFixDialog(emptyBookingData,false)">Fixe Einnhamen hinzufügen</button>
+            </div>
+            <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+                <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+    
+                <!-- Position Column -->
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="name" style="width:60%">
+                    <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
+                    <td mat-cell *matCellDef="let element"> 
+                        <div *ngIf="element.isFixCost==true">{{element.name}} </div>
+                    </td>
+                </ng-container>
+
+                 <!-- Name Column -->
+                 <ng-container matColumnDef="amount" style="width:20%">
+                    <th mat-header-cell *matHeaderCellDef> Betrag </th>
+                    <td mat-cell *matCellDef="let element">  {{element.amount}} € </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="date" style="width:20%">
+                    <th mat-header-cell *matHeaderCellDef> Turnus </th>
+                    <td mat-cell *matCellDef="let element">{{element.turnus}} </td>
+                </ng-container>
+        
+               
+                <ng-container matColumnDef="account" style="width:60%">
+                    <th mat-header-cell *matHeaderCellDef> Konto </th>
+                    <td mat-cell *matCellDef="let element">{{element.transactionAccount}} </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                        <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                            <!-- <div class="example-element-diagram">
+                                <div class="example-element-position"> {{element.date | date: 'dd.MM.yy'}} </div>
+                                <div class="example-element-symbol"> {{element.name}} </div>
+                                <div class="example-element-name"> {{element.amount}} </div>
+                            </div>
+                            <div class="example-element-description">
+                                {{element.description}}
+                                <span class="example-element-description-attribution"> -- Wikipedia </span>
+                            </div> -->
+                        <div>
+                            <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}} </p>
+                            <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
+                            <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
+                            <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
+                            <mat-card-actions fxLayoutAlign="end right">
+                                <button mat-button (click)="openFixDialog(element,true)">Bearbeiten</button>
+                            </mat-card-actions>
+                        </div>
+                        </div>
+                    </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" [hidden]="!element.isFixCost" class="example-element-row"
+                    [class.example-expanded-row]="expandedElement === element"
+                    (click)="expandedElement = expandedElement === element ? null : element">
+                </tr>
+                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+            </table>
+        </div>
+        <div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
