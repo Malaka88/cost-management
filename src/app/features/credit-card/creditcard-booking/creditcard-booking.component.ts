@@ -44,6 +44,7 @@ export class CreditcardBookingComponent implements OnInit {
     transactionAccount: '',
     periodName: '',
     periodNumber: 0,
+    isFixCost:false,
   }
 
   public bookingData: BookingModel[] = [
@@ -58,6 +59,7 @@ export class CreditcardBookingComponent implements OnInit {
       transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 16),
@@ -70,6 +72,7 @@ export class CreditcardBookingComponent implements OnInit {
       transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 13),
@@ -82,6 +85,7 @@ export class CreditcardBookingComponent implements OnInit {
       transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 10),
@@ -94,6 +98,7 @@ export class CreditcardBookingComponent implements OnInit {
       transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 10),
@@ -106,6 +111,7 @@ export class CreditcardBookingComponent implements OnInit {
       transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 10),
@@ -118,6 +124,7 @@ export class CreditcardBookingComponent implements OnInit {
       transactionAccount: '',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     }
   ]
 

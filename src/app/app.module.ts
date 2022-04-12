@@ -64,6 +64,7 @@ import { CreditcardDialogComponent } from './features/credit-card/creditcard-dia
 import { CreditcardBookingComponent } from './features/credit-card/creditcard-booking/creditcard-booking.component';
 import { NewCreditcardDialogComponent } from './features/credit-card/new-creditcard-dialog/new-creditcard-dialog.component';
 import { CreditcardTransactionDialogComponent } from './features/credit-card/creditcard-transaction-dialog/creditcard-transaction-dialog.component';
+import { SpendigDialogComponent } from './features/spending/spendig-dialog/spendig-dialog.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { CreditcardTransactionDialogComponent } from './features/credit-card/cre
     CreditcardBookingComponent,
     NewCreditcardDialogComponent,
     CreditcardTransactionDialogComponent,
+    SpendigDialogComponent,
   ],
   imports: [
     CalendarModule.forRoot({

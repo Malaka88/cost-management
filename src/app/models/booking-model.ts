@@ -9,5 +9,5 @@ export interface BookingModel {
     transactionAccount: String,
     periodNumber: number,
     periodName: string,
-
+    isFixCost: Boolean,
 }

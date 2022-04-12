@@ -45,6 +45,7 @@ export class AccountBookingComponent implements OnInit {
     transactionAccount: '',
     periodName: '',
     periodNumber: 0,
+    isFixCost:false,
   }
 
   public bookingData: BookingModel[] = [
@@ -59,6 +60,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE72560301010211254724',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 16),
@@ -71,6 +73,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE52660301010210254789',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 13),
@@ -83,6 +86,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE42663500366011457824781',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 10),
@@ -95,6 +99,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE61463500366011457824781',
       periodName: 'einmalig',
       periodNumber: 1,
+      isFixCost:false,
     },
     {
       date: new Date(2022, 1, 3),
@@ -107,6 +112,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE72560301010211254724',
       periodName: 'Monat',
       periodNumber: 1,
+      isFixCost:true,
     },
     {
       date: new Date(2022, 1, 2),
@@ -119,6 +125,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE42663500366011457824781',
       periodName: 'Monat',
       periodNumber: 1,
+      isFixCost:true,
     },
     {
       date: new Date(2022, 1, 2),
@@ -131,6 +138,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE42663500366011457824781',
       periodName: 'Monat',
       periodNumber: 1,
+      isFixCost:true,
     },
     {
       date: new Date(2022, 1, 2),
@@ -143,6 +151,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE61463500366011457824781',
       periodName: 'Monat',
       periodNumber: 1,
+      isFixCost:true,
     },
     {
       date: new Date(2022, 1, 2),
@@ -155,6 +164,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE82463500366011457824781',
       periodName: 'Monat',
       periodNumber: 1,
+      isFixCost:true,
     },
     {
       date: new Date(2022, 1, 1),
@@ -167,6 +177,7 @@ export class AccountBookingComponent implements OnInit {
       transactionAccount: 'DE72560301010211254724',
       periodName: 'Monat',
       periodNumber: 1,
+      isFixCost:true,
     },
   ]
 
