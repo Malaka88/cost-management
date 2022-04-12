@@ -6,21 +6,19 @@ import { BookingModel } from 'src/app/models/booking-model';
 import { DropDown } from 'src/app/models/drowpdown-model';
 
 @Component({
-  selector: 'app-spendig-dialog',
-  templateUrl: './spendig-dialog.component.html',
-  styleUrls: ['./spendig-dialog.component.css']
+  selector: 'app-fixcost-dialog',
+  templateUrl: './fixcost-dialog.component.html',
+  styleUrls: ['./fixcost-dialog.component.css']
 })
-export class SpendigDialogComponent implements OnInit {
+export class FixcostDialogComponent implements OnInit {
 
   public transactionForm: FormGroup;
   public turnus: DropDown[];
   public categories: DropDown[];
   public isTaxRelevevantWhenCreated: Boolean;
   public isTaxRelevevantWhenEdited: Boolean;
-  public isFixCostWhenCreated: Boolean;
-  public isFixCostWhenEdited: Boolean;
   constructor(
-    public dialogRef: MatDialogRef<SpendigDialogComponent>,
+    public dialogRef: MatDialogRef<FixcostDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
   ) { }
@@ -59,7 +57,6 @@ export class SpendigDialogComponent implements OnInit {
         transactionAccount: [this.data.bookingData.transactionAccount],
       })
       this.isTaxRelevevantWhenEdited = this.data.bookingData.isTaxRelevant;
-      this.isTaxRelevevantWhenEdited = this.data.bookingData.isFixCost;
     }
 
     //DropDown options for Turnus
@@ -91,7 +88,6 @@ export class SpendigDialogComponent implements OnInit {
 
   closeDialog() {
     this.data.bookingData.isTaxRelevant = this.isTaxRelevevantWhenEdited;
-    this.data.bookingData.isTaxRelevant = this.isFixCostWhenEdited;
     this.dialogRef.close(null);
   }
 
@@ -102,8 +98,8 @@ export class SpendigDialogComponent implements OnInit {
         let transaction = this.transactionForm.value as BookingModel;
         transaction.uuidValue = uuid.v4();
         transaction.dialogAction = 'new';
+        transaction.isFixCost = true;
         transaction.isTaxRelevant = this.isTaxRelevevantWhenCreated;
-        transaction.isTaxRelevant = this.isFixCostWhenCreated;
         this.dialogRef.close(transaction);
       } else {
         this.data.bookingData.name = this.transactionForm.get('name')?.value;
@@ -136,19 +132,6 @@ export class SpendigDialogComponent implements OnInit {
       this.isTaxRelevevantWhenCreated = false;
     }
   }
-
-  onChangeCheckBoxFixCost(event: any) {
-    if (event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = true;
-    } else if (!event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = false;
-    } else if (event.checked && !this.data.btn) {
-      this.isFixCostWhenCreated = true;
-    } else if (!event.checked && !this.data.btn) {
-      this.isFixCostWhenCreated = false;
-    }
-  }
-
 }
 
 

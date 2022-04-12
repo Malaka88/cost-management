@@ -46,6 +46,7 @@ export class AccountBookingComponent implements OnInit {
     periodName: '',
     periodNumber: 0,
     isFixCost:false,
+    turnus:'',
   }
 
   public bookingData: BookingModel[] = [
@@ -61,6 +62,7 @@ export class AccountBookingComponent implements OnInit {
       periodName: 'einmalig',
       periodNumber: 1,
       isFixCost:false,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 16),
@@ -74,6 +76,7 @@ export class AccountBookingComponent implements OnInit {
       periodName: 'einmalig',
       periodNumber: 1,
       isFixCost:false,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 13),
@@ -83,10 +86,11 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE42663500366011457824781',
+      transactionAccount: 'DE426635003011457824781',
       periodName: 'einmalig',
       periodNumber: 1,
       isFixCost:false,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 10),
@@ -96,10 +100,11 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE61463500366011457824781',
+      transactionAccount: 'DE614635003011457824781',
       periodName: 'einmalig',
       periodNumber: 1,
       isFixCost:false,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 3),
@@ -113,6 +118,7 @@ export class AccountBookingComponent implements OnInit {
       periodName: 'Monat',
       periodNumber: 1,
       isFixCost:true,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 2),
@@ -122,10 +128,11 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE42663500366011457824781',
+      transactionAccount: 'DE426635003011457824781',
       periodName: 'Monat',
       periodNumber: 1,
       isFixCost:true,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 2),
@@ -135,10 +142,11 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE42663500366011457824781',
+      transactionAccount: 'DE426635003011457824781',
       periodName: 'Monat',
       periodNumber: 1,
       isFixCost:true,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 2),
@@ -148,10 +156,11 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE61463500366011457824781',
+      transactionAccount: 'DE614635003011457824781',
       periodName: 'Monat',
       periodNumber: 1,
       isFixCost:true,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 2),
@@ -161,10 +170,11 @@ export class AccountBookingComponent implements OnInit {
       isTaxRelevant: false,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
-      transactionAccount: 'DE82463500366011457824781',
+      transactionAccount: 'DE824635003w011457824781',
       periodName: 'Monat',
       periodNumber: 1,
       isFixCost:true,
+      turnus:'',
     },
     {
       date: new Date(2022, 1, 1),
@@ -178,6 +188,7 @@ export class AccountBookingComponent implements OnInit {
       periodName: 'Monat',
       periodNumber: 1,
       isFixCost:true,
+      turnus:'',
     },
   ]
 
