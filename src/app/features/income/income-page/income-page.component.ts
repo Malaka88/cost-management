@@ -71,7 +71,7 @@ export class IncomePageComponent implements OnInit {
       name: 'Dividende Tesla Aktien',
       amount: 100,
       category: 'Dividende',
-      isTaxRelevant: false,
+      isTaxRelevant: true,
       uuidValue: uuid.v4(),
       dialogAction: 'none',
       transactionAccount: 'DE52660301010210254789',
