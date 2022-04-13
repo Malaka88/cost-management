@@ -20,7 +20,7 @@ table {
   
   .example-element-detail {
     overflow: hidden;
-    display: flex;
+    /* display: flex; */
   }
   
   .example-element-diagram {

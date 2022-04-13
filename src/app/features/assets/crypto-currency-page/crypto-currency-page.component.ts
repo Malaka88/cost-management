@@ -32,7 +32,7 @@ const stockData: StockModel[] = [
     performanceAllTime: 200,
   },
   {
-    name: 'Etherium',
+    name: 'Ethereum',
     isbn: 'string',
     symbol: 'TSLA',
     amount: 10,

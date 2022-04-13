@@ -20,7 +20,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-detail {
   overflow: hidden;
-  display: flex;
+  /* display: flex; */
 }
 
 .example-element-diagram {
@@ -46,4 +46,3 @@ tr.example-element-row:not(.example-expanded-row):active {
   opacity: 0.5;
 }
 
-button {margin-bottom: 20px; margin-top: 20px;}
