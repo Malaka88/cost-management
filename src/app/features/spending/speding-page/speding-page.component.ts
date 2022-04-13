@@ -24,13 +24,13 @@ export class SpedingPageComponent implements OnInit {
   constructor(private dialog: MatDialog,) { }
 
   ngOnInit(): void {
-    this.dataSource.data=this.bookingData;
+    this.dataSource.data = this.bookingData;
     this.assignTurnus(true, this.emptyBookingData);
   }
 
-  displayedColumns: string[] = ['date', 'amount', 'name','account'];
+  displayedColumns: string[] = ['date', 'amount', 'name', 'account'];
   dataSource = new MatTableDataSource<BookingModel>();
-  columnsToDisplay = ['date', 'amount', 'name','account'];
+  columnsToDisplay = ['date', 'amount', 'name', 'account'];
   expandedElement: BookingModel | null;
 
   public emptyBookingData: BookingModel = {
@@ -45,8 +45,8 @@ export class SpedingPageComponent implements OnInit {
     myAccount: '',
     periodName: '',
     periodNumber: 0,
-    isFixCost:false,
-    turnus:'',
+    isFixCost: false,
+    turnus: '',
   }
 
   public bookingData: BookingModel[] = [
@@ -62,8 +62,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE92603004700125821366',
       periodName: 'einmalig',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
+      isFixCost: false,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 16),
@@ -77,8 +77,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE11522103600253841898',
       periodName: 'einmalig',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
+      isFixCost: false,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 13),
@@ -92,8 +92,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE37455120360102113574',
       periodName: 'einmalig',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
+      isFixCost: false,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 10),
@@ -107,8 +107,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE11522103600253841898',
       periodName: 'einmalig',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
+      isFixCost: false,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 3),
@@ -122,8 +122,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE37455120360102113574',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 2),
@@ -137,8 +137,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE11522103600253841898',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 2),
@@ -152,8 +152,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE92603004700125821366',
       periodName: 'Monat',
       periodNumber: 3,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 2),
@@ -167,8 +167,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE11522103600253841898',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
     {
       date: new Date(2022, 1, 2),
@@ -182,8 +182,8 @@ export class SpedingPageComponent implements OnInit {
       myAccount: 'DE37455120360102113574',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
   ]
 
