@@ -56,6 +56,7 @@ const colors: any = {
 })
 export class CalendarPageComponent {
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
+  locale = 'de';
 
   view: CalendarView = CalendarView.Month;
 

@@ -20,7 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +51,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AuthGuardService } from './features/login/auth-guard.service';
 import { RegisterComponent } from './features/register/register.component';
 import { MatSelectModule } from '@angular/material/select';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { StockPriceDiagramComponent } from './features/assets/stock-price-diagram/stock-price-diagram.component';
 import { SavingsRatePageComponent } from './features/calculator/savings-rate-page/savings-rate-page.component';
 import { SavingsRateDialogComponent } from './features/calculator/savings-rate-dialog/savings-rate-dialog.component';
@@ -68,6 +68,10 @@ import { SpendigDialogComponent } from './features/spending/spendig-dialog/spend
 import { FixcostDialogComponent } from './features/spending/fixcost-dialog/fixcost-dialog.component';
 import { IncomeDilaogComponent } from './features/income/income-dilaog/income-dilaog.component';
 import { FixDialogComponent } from './features/income/fix-dialog/fix-dialog.component';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [
