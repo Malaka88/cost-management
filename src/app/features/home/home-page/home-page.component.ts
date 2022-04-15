@@ -1,4 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexTitleSubtitle,
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexLegend
+} from "ng-apexcharts";
 import { MatTableDataSource } from '@angular/material/table';
 import { BookingModel } from 'src/app/models/booking-model';
 import * as uuid from 'uuid';
@@ -12,6 +22,21 @@ import * as uuid from 'uuid';
 export class HomePageComponent {
   displayedColumns: string[] = ['date', 'amount', 'name', 'account'];
   dataSource = new MatTableDataSource<BookingModel>();
+
+  legend: ApexLegend = {
+    show: true,
+    position: "bottom",
+    // offsetX: -100
+  }
+
+
+  @ViewChild("chart") chart: ChartComponent;
+  series: ApexNonAxisChartSeries = [900, 1200, 350];
+  labels = ["Überschüss: 900", "Fixe Ausgaben: 1200", "Variable Ausgaben: 350"];
+  chartPie: ApexChart = {
+    width: 600,
+    type: "pie"
+  };
 
   ngOnInit(): void {
     this.dataSource.data = bookingData;

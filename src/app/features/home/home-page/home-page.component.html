@@ -1,4 +1,11 @@
 <mat-tab-group>
+
+    <mat-tab label="Kreisdiagramm">
+        <!-- <img src="../../../../assets/img/Kreisdiagramm.png" alt="Kontoverlauf" class="diagram"> -->
+        <h1>Bilanz aktueller Monat</h1>
+        <apx-chart [series]="series" [chart]="chartPie" [labels]="labels" [legend]="legend"></apx-chart>
+    </mat-tab>
+
     <mat-tab label="Bilanz">
         <p style="margin-top: 10px">Bilanz des aktuellen Monats:</p>
 
@@ -8,10 +15,6 @@
 
     <mat-tab label="Verlauf">
         <img src="../../../../assets/img/Kontoverlauf.png" alt="Kontoverlauf" class="account">
-    </mat-tab>
-
-    <mat-tab label="Kreisdiagramm">
-        <img src="../../../../assets/img/Kreisdiagramm.png" alt="Kontoverlauf" class="diagram">
     </mat-tab>
 
     <mat-tab label="Tabelle">
