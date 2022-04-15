@@ -46,8 +46,8 @@
                     <div>
                         <p *ngIf="element.transactionAccount != null && element.transactionAccount != ''"> Transaktionskonto: {{element.transactionAccount}} </p>
                         <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
-                        <p *ngIf="element.isFixCost"> Fixkosten: Ja </p>
-                        <p *ngIf="!element.isFixCost"> Fixkosten: Nein </p>
+                        <p *ngIf="element.isFixCost"> Fixe Einnahme: Ja </p>
+                        <p *ngIf="!element.isFixCost"> Fixe Einnahme: Nein </p>
                         <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
                         <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
                         <mat-card-actions fxLayoutAlign="end right">

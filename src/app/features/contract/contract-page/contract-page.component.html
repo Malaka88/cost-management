@@ -1,7 +1,7 @@
 <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Verträge">
+    <mat-tab label="Versicherungen">
         <div mat-dialog-actions>
-            <button mat-raised-button (click)="openContractDialog(emptyContract,false)">Vertrag hinzufügen</button>
+            <button mat-raised-button (click)="openContractDialog(emptyContract,false)">Versicherung hinzufügen</button>
         </div>
         <div *ngFor="let contract of contracts">
             <mat-card class="card">
