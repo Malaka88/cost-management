@@ -31,8 +31,8 @@ export class HomePageComponent {
 
 
   @ViewChild("chart") chart: ChartComponent;
-  series: ApexNonAxisChartSeries = [900, 1200, 350];
-  labels = ["Überschüss: 900", "Fixe Ausgaben: 1200", "Variable Ausgaben: 350"];
+  series: ApexNonAxisChartSeries = [1243.24, 1412.23, 351.74];
+  labels = ["Überschüss: 1243.24", "Fixe Ausgaben: 1412.23", "Variable Ausgaben: 351.74"];
   chartPie: ApexChart = {
     width: 600,
     type: "pie"
