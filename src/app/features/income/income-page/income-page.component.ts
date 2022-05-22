@@ -25,13 +25,13 @@ export class IncomePageComponent implements OnInit {
   constructor(private dialog: MatDialog,) { }
 
   ngOnInit(): void {
-    this.dataSource.data=this.bookingData;
+    this.dataSource.data = this.bookingData;
     this.assignTurnus(true, this.emptyBookingData);
   }
 
-  displayedColumns: string[] = ['date', 'amount', 'name','account'];
+  displayedColumns: string[] = ['date', 'amount', 'name', 'account'];
   dataSource = new MatTableDataSource<BookingModel>();
-  columnsToDisplay = ['date', 'amount', 'name','account'];
+  columnsToDisplay = ['date', 'amount', 'name', 'account'];
   expandedElement: BookingModel | null;
 
   public emptyBookingData: BookingModel = {
@@ -46,8 +46,8 @@ export class IncomePageComponent implements OnInit {
     myAccount: '',
     periodName: '',
     periodNumber: 0,
-    isFixCost:false,
-    turnus:'',
+    isFixCost: false,
+    turnus: '',
   }
 
   public bookingData: BookingModel[] = [
@@ -63,8 +63,8 @@ export class IncomePageComponent implements OnInit {
       myAccount: 'DE92603004700125821366',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
     {
       date: new Date(2022, 2, 16),
@@ -78,8 +78,8 @@ export class IncomePageComponent implements OnInit {
       myAccount: 'DE11522103600253841898',
       periodName: 'einmalig',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
+      isFixCost: false,
+      turnus: '',
     },
     {
       date: new Date(2022, 2, 13),
@@ -93,8 +93,8 @@ export class IncomePageComponent implements OnInit {
       myAccount: 'DE72560301010211254724',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:true,
-      turnus:'',
+      isFixCost: true,
+      turnus: '',
     },
     {
       date: new Date(2022, 2, 10),
@@ -108,9 +108,9 @@ export class IncomePageComponent implements OnInit {
       myAccount: 'DE11522103600253841898',
       periodName: 'einmalig',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
-    },{
+      isFixCost: false,
+      turnus: '',
+    }, {
       date: new Date(2022, 1, 17),
       name: 'Gehalt Hauptarbeitgeber',
       amount: 2500,
@@ -122,10 +122,10 @@ export class IncomePageComponent implements OnInit {
       myAccount: 'DE92603004700125821366',
       periodName: 'Monat',
       periodNumber: 1,
-      isFixCost:false,
-      turnus:'',
+      isFixCost: false,
+      turnus: '',
     },
-    
+
   ]
 
   openIncomeDialog(bookingData: BookingModel, delBtnIsVisible: Boolean) {
@@ -133,7 +133,12 @@ export class IncomePageComponent implements OnInit {
     const dialogRef = this.dialog.open(IncomeDilaogComponent, {
       data: { bookingData: bookingData, btn: delBtnIsVisible }
     });
-    dialogRef.afterClosed().subscribe(x => this.dialogTransactionAction(x));
+    dialogRef.afterClosed().subscribe(x => {
+      if (x) {
+        this.dialogTransactionAction(x);
+      }
+    }
+    );
   }
 
   openFixDialog(bookingData: BookingModel, delBtnIsVisible: Boolean) {
@@ -141,8 +146,12 @@ export class IncomePageComponent implements OnInit {
     const dialogRef = this.dialog.open(FixDialogComponent, {
       data: { bookingData: bookingData, btn: delBtnIsVisible }
     });
-    dialogRef.afterClosed().subscribe(x => this.dialogTransactionAction(x));
-  }
+    dialogRef.afterClosed().subscribe(x => {
+      if (x) {
+        this.dialogTransactionAction(x);
+      }
+    }
+    );  }
 
   dialogTransactionAction(returnedTransaction: BookingModel) {
     if (returnedTransaction.dialogAction == 'delete') {

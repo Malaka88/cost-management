@@ -54,7 +54,7 @@
                             <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
                             <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
                             <mat-card-actions fxLayoutAlign="end right">
-                                <button mat-button (click)="openTransactionDialog(element,true)">Bearbeiten</button>
+                                <button mat-button (click)="openTransactionDialog(element,true)" style="margin-bottom: 10px;">Bearbeiten</button>
                             </mat-card-actions>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                                 <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
                                 <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
                                 <mat-card-actions fxLayoutAlign="end right">
-                                    <button mat-button (click)="openFixCostDialog(element,true)">Bearbeiten</button>
+                                    <button mat-button (click)="openFixCostDialog(element,true)" style="margin-bottom: 10px;">Bearbeiten</button>
                                 </mat-card-actions>
                             </div>
                         </div>

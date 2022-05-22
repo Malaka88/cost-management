@@ -45,7 +45,7 @@ export class IncomeDilaogComponent implements OnInit {
         isFixCost: [false],
         category: [null],
         transactionAccount: [null],
-        myAccount: [null],
+        myAccount: [null,Validators.required],
       })
     } else {
       //if dialog was opened with "edit"
@@ -60,10 +60,10 @@ export class IncomeDilaogComponent implements OnInit {
         isFixCost: [this.data.bookingData.isFixCost],
         category: [this.data.bookingData.category],
         transactionAccount: [this.data.bookingData.transactionAccount],
-        myAccount: [this.data.bookingData.myAccount],
+        myAccount: [this.data.bookingData.myAccount,Validators.required],
       })
       this.isTaxRelevevantWhenEdited = this.data.bookingData.isTaxRelevant;
-      this.isTaxRelevevantWhenEdited = this.data.bookingData.isFixCost;
+      this.isFixCostWhenEdited = this.data.bookingData.isFixCost;
     }
 
     //DropDown options for Turnus
@@ -140,9 +140,9 @@ export class IncomeDilaogComponent implements OnInit {
 
   onChangeCheckBox(event: any) {
     if (event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = true;
+      this.data.bookingData.isTaxRelevant = true;
     } else if (!event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = false;
+      this.data.bookingData.isTaxRelevant = false;
     } else if (event.checked && !this.data.btn) {
       this.isTaxRelevevantWhenCreated = true;
     } else if (!event.checked && !this.data.btn) {
@@ -161,7 +161,6 @@ export class IncomeDilaogComponent implements OnInit {
       this.isFixCostWhenCreated = false;
     }
   }
-
 }
 
 

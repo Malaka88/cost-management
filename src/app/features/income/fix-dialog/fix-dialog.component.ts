@@ -36,21 +36,21 @@ export class FixDialogComponent implements OnInit {
       this.transactionForm = this.fb.group({
         name: [null, Validators.required],
         amount: [null, Validators.required],
-        date:  [null,Validators.required],
+        date: [null, Validators.required],
         periodNumber: [null],
         periodName: [null],
         isTaxRelevant: [false],
         isFixCost: [false],
         category: [null],
         transactionAccount: [null],
-        myAccount: [null],
+        myAccount: [null, Validators.required],
       })
     } else {
       //if dialog was opened with "edit"
       this.transactionForm = this.fb.group({
         name: [this.data.bookingData.name, Validators.required],
         amount: [this.data.bookingData.amount, Validators.required],
-        date:  [this.data.bookingData.date,Validators.required],
+        date: [this.data.bookingData.date, Validators.required],
         uuidValue: [this.data.bookingData.uuidValue],
         periodNumber: [this.data.bookingData.periodNumber],
         periodName: [this.data.bookingData.periodName],
@@ -58,7 +58,7 @@ export class FixDialogComponent implements OnInit {
         isFixCost: [this.data.bookingData.isFixCost],
         category: [this.data.bookingData.category],
         transactionAccount: [this.data.bookingData.transactionAccount],
-        myAccount: [this.data.bookingData.myAccount],
+        myAccount: [this.data.bookingData.myAccount, Validators.required],
       })
       this.isTaxRelevevantWhenEdited = this.data.bookingData.isTaxRelevant;
     }
@@ -71,8 +71,8 @@ export class FixDialogComponent implements OnInit {
       { value: 'Jahr', viewValue: 'Jahr' },
     ];
 
-     //DropDown options for Myaccount
-     this.myAccounts = [
+    //DropDown options for Myaccount
+    this.myAccounts = [
       { value: 'DE11522103600253841898', viewValue: 'DE11522103600253841898' },
       { value: 'DE92603004700125821366', viewValue: 'DE92603004700125821366' },
       { value: 'DE37455120360102113574', viewValue: 'DE37455120360102113574' },
@@ -134,15 +134,16 @@ export class FixDialogComponent implements OnInit {
     }
   }
 
-  onChangeCheckBox(event: any) {
+  onChangeCheckBoxTax(event: any) {
     if (event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = true;
+      this.data.bookingData.isTaxRelevant = true;
     } else if (!event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = false;
-    } else if (event.checked && !this.data.btn) {
-      this.isTaxRelevevantWhenCreated = true;
-    } else if (!event.checked && !this.data.btn) {
-      this.isTaxRelevevantWhenCreated = false;
+      this.data.bookingData.isTaxRelevant = false;
+      if (event.checked && !this.data.btn) {
+        this.isTaxRelevevantWhenCreated = true;
+      } else if (!event.checked && !this.data.btn) {
+        this.isTaxRelevevantWhenCreated = false;
+      }
     }
   }
 }

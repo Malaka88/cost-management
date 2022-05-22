@@ -135,13 +135,14 @@ export class FixcostDialogComponent implements OnInit {
 
   onChangeCheckBox(event: any) {
     if (event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = true;
+      this.data.bookingData.isTaxRelevant = true;
     } else if (!event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = false;
-    } else if (event.checked && !this.data.btn) {
-      this.isTaxRelevevantWhenCreated = true;
-    } else if (!event.checked && !this.data.btn) {
-      this.isTaxRelevevantWhenCreated = false;
+      this.data.bookingData.isTaxRelevant = false;
+      if (event.checked && !this.data.btn) {
+        this.isTaxRelevevantWhenCreated = true;
+      } else if (!event.checked && !this.data.btn) {
+        this.isTaxRelevevantWhenCreated = false;
+      }
     }
   }
 }

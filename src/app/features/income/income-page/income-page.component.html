@@ -1,8 +1,8 @@
 <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Historie">
-        <div mat-dialog-actions>
+        <div mat-dialog-actions style="margin-bottom: 20px">
             <button mat-raised-button (click)="openIncomeDialog(emptyBookingData,false)">Einnahme
-                hinzufügen</button>
+                hinzufügen</button> 
         </div>
         <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
             <!--- Note that these columns can be defined in any order.
@@ -28,7 +28,7 @@
 
             <ng-container matColumnDef="account" style="width:60%">
                 <th mat-header-cell *matHeaderCellDef> Konto </th>
-                <td mat-cell *matCellDef="let element"> {{element.transactionAccount}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.myAccount}} </td>
             </ng-container>
 
             <ng-container matColumnDef="expandedDetail">
@@ -51,7 +51,7 @@
                         <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
                         <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
                         <mat-card-actions fxLayoutAlign="end right">
-                            <button mat-button (click)="openIncomeDialog(element,true)">Bearbeiten</button>
+                            <button mat-button (click)="openIncomeDialog(element,true)" style="margin-bottom: 10px;">Bearbeiten</button>
                         </mat-card-actions>
                     </div>
                     </div>
@@ -68,7 +68,7 @@
     </mat-tab>
     <mat-tab label="Fixe Einnahmen">
         <div>
-            <div mat-dialog-actions>
+            <div mat-dialog-actions style="margin-bottom: 20px">
                 <button mat-raised-button (click)="openFixDialog(emptyBookingData,false)">Fixe Einnahme hinzufügen</button>
             </div>
             <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
@@ -119,7 +119,7 @@
                             <p *ngIf="element.category != null && element.category != ''"> Kategorie: {{element.category}} </p>
                             <p *ngIf="element.isTaxRelevant"> steuerrelevant: Ja </p>
                             <p *ngIf="!element.isTaxRelevant"> steuerrelevant: Nein </p>
-                            <mat-card-actions fxLayoutAlign="end right">
+                            <mat-card-actions fxLayoutAlign="end right" style="margin-bottom: 10px;">
                                 <button mat-button (click)="openFixDialog(element,true)">Bearbeiten</button>
                             </mat-card-actions>
                         </div>

@@ -32,7 +32,8 @@ export class HomePageComponent {
 
   @ViewChild("chart") chart: ChartComponent;
   series: ApexNonAxisChartSeries = [1243.24, 1412.23, 351.74];
-  labels = ["Überschüss: 1243.24", "Fixe Ausgaben: 1412.23", "Variable Ausgaben: 351.74"];
+  // labels = ["Überschüss: 1243.24 €", "Fixe Ausgaben: 1412.23 €", "Variable Ausgaben: 351.74 €"];
+  labels = ["Überschüss", "Fixe Ausgaben", "Variable Ausgaben"];
   chartPie: ApexChart = {
     width: 600,
     type: "pie"

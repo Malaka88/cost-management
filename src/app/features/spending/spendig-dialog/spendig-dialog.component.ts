@@ -139,9 +139,9 @@ export class SpendigDialogComponent implements OnInit {
 
   onChangeCheckBox(event: any) {
     if (event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = true;
+      this.data.bookingData.isTaxRelevant = true;
     } else if (!event.checked && this.data.btn) {
-      this.data.bookingData.isFixCost = false;
+      this.data.bookingData.isTaxRelevant = false;
     } else if (event.checked && !this.data.btn) {
       this.isTaxRelevevantWhenCreated = true;
     } else if (!event.checked && !this.data.btn) {

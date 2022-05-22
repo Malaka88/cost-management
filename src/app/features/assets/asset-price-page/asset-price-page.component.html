@@ -1,5 +1,9 @@
 <h1>Aktienkurse</h1>
 
+<button mat-raised-button style="margin-top: 10px; margin-bottom: 10px;" >
+    Aktienkurs hinzufügen
+</button>
+
 <div *ngFor="let stock of stocks">
     <app-stock-price-diagram [stockName]="stock"></app-stock-price-diagram>
 </div>

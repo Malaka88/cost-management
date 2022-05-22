@@ -192,16 +192,24 @@ export class SpedingPageComponent implements OnInit {
     const dialogRef = this.dialog.open(SpendigDialogComponent, {
       data: { bookingData: bookingData, btn: delBtnIsVisible }
     });
-    dialogRef.afterClosed().subscribe(x => this.dialogTransactionAction(x));
-  }
+    dialogRef.afterClosed().subscribe(x => {
+      if (x) {
+        this.dialogTransactionAction(x);
+      }
+    }
+    );  }
 
   openFixCostDialog(bookingData: BookingModel, delBtnIsVisible: Boolean) {
     console.log(this.bookingData);
     const dialogRef = this.dialog.open(FixcostDialogComponent, {
       data: { bookingData: bookingData, btn: delBtnIsVisible }
     });
-    dialogRef.afterClosed().subscribe(x => this.dialogTransactionAction(x));
-  }
+    dialogRef.afterClosed().subscribe(x => {
+      if (x) {
+        this.dialogTransactionAction(x);
+      }
+    }
+    );  }
 
   dialogTransactionAction(returnedTransaction: BookingModel) {
     if (returnedTransaction.dialogAction == 'delete') {

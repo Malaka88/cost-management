@@ -21,6 +21,7 @@ export class CreateIncomeDialogComponent implements OnInit {
       origin: [null, Validators.required],
       incomeMoney: [null, Validators.required],
       incomeDate: [null, Validators.required],
+      myAccount: [null, Validators.required],
     })
   }
 

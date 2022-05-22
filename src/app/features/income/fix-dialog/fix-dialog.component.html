@@ -54,7 +54,7 @@
         </div>
     </div>
 </form>
-<mat-checkbox [checked]="data.bookingData.isTaxRelevant" (change)="onChangeCheckBox($event)"> steuerrelevant </mat-checkbox> 
+<mat-checkbox [checked]="data.bookingData.isTaxRelevant" (change)="onChangeCheckBoxTax($event)"> steuerrelevant </mat-checkbox> 
 <div mat-dialog-actions fxLayoutAlign="end center">
     <button mat-button (click)="closeDialog()">Abbrechen</button>​
     <button mat-raised-button [disabled]="data.bookingData.name.length==0" (click)="delete()" *ngIf="data.btn">Löschen</button>
