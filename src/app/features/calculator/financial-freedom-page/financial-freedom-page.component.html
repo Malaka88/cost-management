@@ -24,6 +24,10 @@
         <mat-label>Wunschrenteneintrittsalter</mat-label>
         <input matInput formControlName="pensionAge" type="number">
     </mat-form-field> <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Vorhandenes Eigenkapital (optional)</mat-label>
+        <input matInput type="number" formControlName="EK">
+    </mat-form-field> <br>
     <div mat-dialog-actions fxLayoutAlign="start center">
         <button mat-raised-button (click)="calculate()">Berechnen</button>
     </div>

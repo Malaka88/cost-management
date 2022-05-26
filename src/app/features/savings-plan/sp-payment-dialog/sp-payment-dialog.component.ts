@@ -66,9 +66,11 @@ export class SpPaymentDialogComponent implements OnInit {
 
     //Kontos options for Turnus
     this.accounts = [
-      { value: 'DE58663500360010594379', viewValue: 'DE58663500360010594379' },
-      { value: 'DE42660500360010524385', viewValue: 'DE42660500360010524385' },
+      { value: 'DE11522103600253841898', viewValue: 'DE11522103600253841898' },
+      { value: 'DE92603004700125821366', viewValue: 'DE92603004700125821366' },
+      { value: 'DE37455120360102113574', viewValue: 'DE37455120360102113574' },
     ];
+
   }
 
   closeDialog() {

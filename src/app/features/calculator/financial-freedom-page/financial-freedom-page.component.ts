@@ -42,6 +42,7 @@ export class FinancialFreedomPageComponent implements OnInit {
       pensionAge: [55, Validators.required],
       returnRate: [5, Validators.required],
       inflation: [1.84],
+      EK: [0],
       tax: [26.375],
     })
   }

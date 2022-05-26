@@ -5,12 +5,12 @@
             <mat-label>E-Mail</mat-label>
             <input matInput formControlName="email" type="text">
         </mat-form-field> <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Passwort</mat-label>
-            <input matInput formControlName="password" type="text">
+        <mat-form-field  appearance="fill">
+            <mat-label >Passwort</mat-label>
+            <input type="password" matInput formControlName="password">
         </mat-form-field>
     </form>
-    <button mat-button>Passwort vergessen</button>
+    <button mat-button >Passwort vergessen</button>
     <button mat-button (click)="register()">Registrieren</button>
     <button mat-raised-button (click)="logIn()" routerLink="home">Einloggen</button>
 </div>
