@@ -10,7 +10,7 @@
             <div style="width:20px;"></div>
             <div>
                 <h1>{{creditCard.name}}</h1>
-                <p *ngIf="creditCard.creditNardNumber != null && creditCard.creditNardNumber != ''"> Nummer: {{creditCard.creditNardNumber}}</p>
+                <p *ngIf="creditCard.creditCardNumber != null && creditCard.creditCardNumber != ''"> Nummer: {{creditCard.creditCardNumber}}</p>
                 <p *ngIf="creditCard.expirationDay != null"> Ablaufdatum: {{creditCard.expirationDay | date: 'dd.MM.yy' }} </p>
             </div>
         </div>

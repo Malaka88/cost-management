@@ -14,7 +14,24 @@
     </mat-tab>
 
     <mat-tab label="Verlauf">
+        <div mat-dialog-actions style="margin-top:10px;">
+
+            <mat-form-field appearance="fill">
+                <mat-label>'Startdatum wählen'</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field style="margin-left: 15px;" appearance="fill">
+                <mat-label>'Enddatum wählen'</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="date"> 
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+        </div>
+        
         <img src="../../../../assets/img/Kontoverlauf.png" alt="Kontoverlauf" class="account">
+
     </mat-tab>
 
     <mat-tab label="Tabelle">

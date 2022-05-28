@@ -5,7 +5,7 @@
         amount: number,
         route: string,
         expirationDay: Date;
-        creditNardNumber: string;
+        creditCardNumber: string;
         dialogAction: string;
         uuidValue: string;
       }
